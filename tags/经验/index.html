@@ -113,7 +113,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="javascript:void(0)" class="waves-effect waves-light">
+    <a href="javascript:void(0)" class="waves-effect waves-light" data-no-pjax>
 
       
       <i class="fas fa-cogs" style="zoom: 0.6;"></i>
@@ -182,109 +182,110 @@
     <ul class="menu-list mobile-menu-list">
         
         <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
+		  
+			<a href="/" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-home"></i>
+				
+				首页
+			</a>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-list"></i>
-			
-			教程
-		</a>
-          
-        </li>
-        
+		  
+			<a href="/categories" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-list"></i>
+				
+				教程
+			</a>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="/products" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-cubes"></i>
-			
-			产品
-		</a>
-          
-        </li>
-        
+		  
+			<a href="/products" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-cubes"></i>
+				
+				产品
+			</a>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
+		  
+			<a href="/contact" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-comments"></i>
+				
+				留言板
+			</a>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
+		  
+			<a href="/about" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-user-circle"></i>
+				
+				关于
+			</a>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="javascript:;">
-			
-				<i class="fa-fw fas fa-cogs"></i>
-			
-			配置网站
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
-		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
+		  
+			<a href="javascript:;" data-no-pjax>
+				
+					<i class="fa-fw fas fa-cogs"></i>
+				
+				配置网站
+				<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+			</a>
+	            <ul  style="background:  ;" >
+	              
+	                <li>
 
-                  <a target="_blank" rel="noopener" href="https://wifi-dtu.qltxy.cn/ " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-wifi" style="position: absolute;left:50px" ></i>
-			      
-		          <span>WiFi-DTU配置</span>
-                  </a>
-                </li>
-              
-                <li>
+	                  <a target="_blank" rel="noopener" href="https://wifi-dtu.qltxy.cn/ " style="margin-left:75px">
+					  
+					   <i class="fa fas fa-wifi" style="position: absolute;left:50px" ></i>
+				      
+			          <span>WiFi-DTU配置</span>
+	                  </a>
+	                </li>
+	              
+	                <li>
 
-                  <a target="_blank" rel="noopener" href="http://dtu.shengche.top/ " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-signal" style="position: absolute;left:50px" ></i>
-			      
-		          <span>4G-DTU配置</span>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-        
+	                  <a target="_blank" rel="noopener" href="http://dtu.shengche.top/ " style="margin-left:75px">
+					  
+					   <i class="fa fas fa-signal" style="position: absolute;left:50px" ></i>
+				      
+			          <span>4G-DTU配置</span>
+	                  </a>
+	                </li>
+	              
+	            </ul>
+	          
+	        </li>
+	        
         <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-users"></i>
-			
-			推荐友商
-		</a>
-          
-        </li>
-        
-        
-    </ul>
-</div>
+		  
+			<a href="/friends" class="waves-effect waves-light">
+				
+				    <i class="fa-fw fas fa-users"></i>
+				
+				推荐友商
+			</a>
+	          
+	        </li>
+	        
+	        
+	    </ul>
+	</div>
+	</tool_result>
 
 
         </div>
@@ -480,7 +481,8 @@
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<!-- meting-js: 国内可换用 unpkg 或自建 CDN -->
+<script src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
 
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
@@ -652,30 +654,55 @@ $(function () {
     var container = document.getElementById('pjax-container');
     if (!container) return;
 
-    // 执行页面内联脚本
+    // 执行页面内联脚本（外部脚本异步加载完再执行内联）
     function execScripts(containerEl) {
         var scripts = containerEl.querySelectorAll('script');
-        var scriptData = [];
+        var externalScripts = [];  // 有 src 的外部脚本
+        var inlineScripts = [];    // 内联脚本
+
         scripts.forEach(function(s) {
             var attrs = {};
             for (var i = 0; i < s.attributes.length; i++) {
                 attrs[s.attributes[i].name] = s.attributes[i].value;
             }
-            scriptData.push({ src: s.src || '', text: s.textContent || '', attrs: attrs });
-        });
-        scripts.forEach(function(s) {
+            if (s.src) {
+                externalScripts.push({ src: s.src, attrs: attrs });
+            } else {
+                inlineScripts.push({ text: s.textContent || '', attrs: attrs });
+            }
             if (s.parentNode) s.parentNode.removeChild(s);
         });
-        scriptData.forEach(function(data) {
+
+        // 先加载外部脚本，全部就绪后再执行内联脚本
+        var loaded = 0;
+        function runInlineScripts() {
+            inlineScripts.forEach(function(data) {
+                var script = document.createElement('script');
+                Object.keys(data.attrs).forEach(function(key) {
+                    script.setAttribute(key, data.attrs[key]);
+                });
+                script.textContent = data.text;
+                containerEl.appendChild(script);
+            });
+        }
+
+        if (externalScripts.length === 0) {
+            runInlineScripts();
+            return;
+        }
+
+        externalScripts.forEach(function(data) {
             var script = document.createElement('script');
             Object.keys(data.attrs).forEach(function(key) {
                 script.setAttribute(key, data.attrs[key]);
             });
-            if (data.src) {
-                script.src = data.src;
-            } else {
-                script.textContent = data.text;
-            }
+            script.src = data.src;
+            script.onload = script.onerror = function() {
+                loaded++;
+                if (loaded >= externalScripts.length) {
+                    runInlineScripts();
+                }
+            };
             containerEl.appendChild(script);
         });
     }
@@ -762,6 +789,12 @@ $(function () {
 
         // 站内链接 → PJAX 加载
         e.preventDefault();
+
+        // 关闭移动端侧边栏
+        if (typeof $ !== 'undefined') {
+            $('.sidenav').sidenav('close');
+        }
+
         loadPage(href, true);
     });
 
@@ -777,6 +810,17 @@ $(function () {
     // 初始状态
     if (!history.state) {
         history.replaceState({ url: window.location.href }, document.title, window.location.href);
+    }
+
+    // 搜索按钮：直接绑定，彻底绕过 PJAX 和 Materialize 的事件冲突
+    var searchLink = document.querySelector('a[href="#searchModal"]');
+    if (searchLink) {
+        searchLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (typeof $ !== 'undefined') {
+                $('#searchModal').modal('open');
+            }
+        });
     }
 })();
 </script>

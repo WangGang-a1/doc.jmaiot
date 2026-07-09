@@ -113,7 +113,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="" class="waves-effect waves-light">
+    <a href="javascript:void(0)" class="waves-effect waves-light">
 
       
       <i class="fas fa-cogs" style="zoom: 0.6;"></i>
@@ -294,6 +294,8 @@
 
 </header>
 
+
+    <div id="pjax-container">
     <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
@@ -539,6 +541,7 @@
 })();
 </script>
 
+    </div>
 
     <footer class="page-footer bg-color">
     
@@ -755,6 +758,163 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+    <!-- PJAX 无刷新页面加载 -->
+<script>
+(function() {
+    if (!window.history || !window.history.pushState) return;
+    if (!window.fetch || !window.DOMParser) return;
+
+    var container = document.getElementById('pjax-container');
+    if (!container) return;
+
+    // 执行页面内联脚本
+    function execScripts(containerEl) {
+        var scripts = containerEl.querySelectorAll('script');
+        // 先收集信息再操作，避免 NodeList 动态变化问题
+        var scriptData = [];
+        scripts.forEach(function(s) {
+            var attrs = {};
+            for (var i = 0; i < s.attributes.length; i++) {
+                attrs[s.attributes[i].name] = s.attributes[i].value;
+            }
+            scriptData.push({ src: s.src || '', text: s.textContent || '', attrs: attrs });
+        });
+
+        // 移除旧脚本
+        scripts.forEach(function(s) {
+            if (s.parentNode) s.parentNode.removeChild(s);
+        });
+
+        // 创建新脚本执行
+        scriptData.forEach(function(data) {
+            var script = document.createElement('script');
+            Object.keys(data.attrs).forEach(function(key) {
+                script.setAttribute(key, data.attrs[key]);
+            });
+            if (data.src) {
+                script.src = data.src;
+            } else {
+                script.textContent = data.text;
+            }
+            containerEl.appendChild(script);
+        });
+    }
+
+    // AJAX 加载页面
+    function loadPage(url, addToHistory) {
+        // 触发卸载事件，让当前页面脚本做清理
+        document.dispatchEvent(new CustomEvent('pjax:beforeLoad', { detail: { url: url } }));
+
+        fetch(url, { credentials: 'same-origin' })
+            .then(function(res) {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.text();
+            })
+            .then(function(html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var newContainer = doc.getElementById('pjax-container');
+                var newTitle = doc.title;
+
+                if (!newContainer) throw new Error('No container in response');
+
+                // 替换内容
+                container.innerHTML = newContainer.innerHTML;
+
+                // 更新标题
+                document.title = newTitle;
+
+                // 更新 URL
+                if (addToHistory !== false) {
+                    history.pushState({ url: url }, newTitle, url);
+                }
+
+                // 执行新页面脚本
+                execScripts(container);
+
+                // 重新初始化组件
+                if (typeof AOS !== 'undefined') AOS.refresh();
+                if (typeof M !== 'undefined' && M.Tooltip) {
+                    M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+                }
+                if (typeof M !== 'undefined' && M.Materialbox) {
+                    M.Materialbox.init(document.querySelectorAll('.materialboxed'), {});
+                }
+
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+
+                // 通知页面脚本 PJAX 加载完成
+                document.dispatchEvent(new CustomEvent('pjax:complete', { detail: { url: url } }));
+
+                // 更新搜索索引（如果存在）
+                if (typeof searchFunc !== 'undefined' && window.searchData) {
+                    // 搜索需要重新绑定
+                }
+            })
+            .catch(function(err) {
+                // 失败时回退到完整页面跳转
+                console.log('PJAX fallback to full navigation:', err.message);
+                window.location = url;
+            });
+    }
+
+    // 拦截链接点击
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href || href === '#') return;
+
+        // Materialize 模态框触发器（搜索、登录等），放行
+        if (link.classList.contains('modal-trigger')) return;
+
+        // 不拦截的情况
+        if (link.hostname !== window.location.hostname) return;   // 外部链接
+        if (href === '#' || href === '') {                         // 空链接/锚点
+            e.preventDefault();
+            return;
+        }
+        if (href.indexOf('#') === 0) {                             // 页面内锚点
+            e.preventDefault();
+            // 页面内锚点：滚动到目标位置
+            var target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+        if (link.getAttribute('target') === '_blank') return;      // 新窗口
+        if (link.getAttribute('download') !== null) return;        // 下载链接
+        if (link.getAttribute('data-no-pjax') !== null) return;    // 显式排除
+        if (href.indexOf('/search') === 0) return;                 // 搜索页
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return;          // 修饰键（新标签）
+
+        e.preventDefault();
+        loadPage(href, true);
+    });
+
+    // 浏览器前进/后退
+    window.addEventListener('popstate', function(e) {
+        if (e.state && e.state.url) {
+            loadPage(e.state.url, false);
+        } else {
+            // 无状态则完整加载
+            window.location.reload();
+        }
+    });
+
+    // 初始状态
+    if (!history.state) {
+        history.replaceState({ url: window.location.href }, document.title, window.location.href);
+    }
+
+    // 清理函数供页面脚本使用
+    window.pjax = {
+        load: loadPage
+    };
+})();
+</script>
+
 
     <!-- Baidu Analytics -->
 

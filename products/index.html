@@ -157,7 +157,7 @@
   </li>
   
   <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light" data-no-pjax>
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
@@ -339,6 +339,34 @@
 </div>
 
 <main class="content">
+
+    
+
+    <!-- 产品筛选器 -->
+    
+    <div id="product-filter" class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="filter-row">
+                    <span class="filter-label"><i class="fas fa-cubes"></i>&nbsp;产品分类：</span>
+                    <span class="filter-chip chip chip-active" data-value="">全部</span>
+                    
+                    <span class="filter-chip chip chip-default" data-value="WiFi">WiFi</span>
+                    
+                    <span class="filter-chip chip chip-default" data-value="DTU">DTU</span>
+                    
+                    <span class="filter-chip chip chip-default" data-value="MQTT">MQTT</span>
+                    
+                    <span class="filter-chip chip chip-default" data-value="4G">4G</span>
+                    
+                    <span class="filter-chip chip chip-default" data-value="全网通">全网通</span>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <div id="products" class="container">
         <div class="products-title center-align" data-aos="fade-down">
             <i class="fas fa-cubes"></i>&nbsp;&nbsp;产品
@@ -347,9 +375,10 @@
         
 
         
-        <div class="row">
+        <div class="row" id="product-list">
             
-            <div class="col s12 m6" data-aos="fade-up" data-aos-delay="0">
+            <div class="col s12 m6 product-item" data-aos="fade-up" data-aos-delay="0"
+                 data-tags="WiFi,DTU,MQTT">
                 <div class="card horizontal product-card">
                     <div class="card-image product-image">
                         
@@ -382,7 +411,8 @@
                 </div>
             </div>
             
-            <div class="col s12 m6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col s12 m6 product-item" data-aos="fade-up" data-aos-delay="100"
+                 data-tags="4G,DTU,全网通">
                 <div class="card horizontal product-card">
                     <div class="card-image product-image">
                         
@@ -418,6 +448,13 @@
         </div>
         
     </div>
+
+    <!-- 空结果提示 -->
+    <div id="no-result" class="container center-align" style="display:none;">
+        <i class="far fa-folder-open fa-3x" style="color:#bbb;"></i>
+        <p style="color:#999;margin-top:1rem;">没有匹配的产品，试试其他筛选条件。</p>
+    </div>
+
 </main>
 
 <style type="text/css">
@@ -469,6 +506,34 @@
         display: block;
         margin-bottom: 1rem;
     }
+
+    /* 筛选器样式 */
+    #product-filter .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    #product-filter .filter-label {
+        font-weight: 500;
+        color: #555;
+        margin-right: 6px;
+        white-space: nowrap;
+    }
+    #product-filter .filter-chip {
+        margin: 2px 4px;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.25s;
+    }
+    #product-filter .filter-chip.chip-active {
+        color: #fff !important;
+        background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
+    }
+    #no-result i {
+        display: block;
+        margin-top: 2rem;
+    }
+
     @media only screen and (max-width: 600px) {
         .product-card {
             display: block;
@@ -482,6 +547,65 @@
         }
     }
 </style>
+
+<script>
+(function() {
+    var selectedTag = '';
+
+    function applyFilter() {
+        var visibleCount = 0;
+        document.querySelectorAll('#product-list .product-item').forEach(function(item) {
+            var tags = item.dataset.tags ? item.dataset.tags.split(',') : [];
+            var match = !selectedTag || tags.indexOf(selectedTag) !== -1;
+
+            if (match) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        document.getElementById('no-result').style.display = visibleCount === 0 ? '' : 'none';
+    }
+
+    function selectChip(value) {
+        var allChips = document.querySelectorAll('#product-filter .filter-chip');
+        var found = null;
+        allChips.forEach(function(c) {
+            if (c.dataset.value === value) found = c;
+        });
+        if (!found && value) {
+            allChips.forEach(function(c) {
+                if (c.dataset.value === '') found = c;
+            });
+        }
+        if (found) {
+            allChips.forEach(function(c) {
+                c.classList.remove('chip-active');
+                c.classList.add('chip-default');
+            });
+            found.classList.add('chip-active');
+            found.classList.remove('chip-default');
+            selectedTag = value;
+        }
+    }
+
+    document.querySelectorAll('#product-filter .filter-chip').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+            selectChip(this.dataset.value);
+            applyFilter();
+        });
+    });
+
+    // URL 参数初始化
+    var params = new URLSearchParams(window.location.search);
+    var urlTag = params.get('tag') || '';
+    if (urlTag) {
+        selectChip(urlTag);
+        applyFilter();
+    }
+})();
+</script>
 
     </div>
 
@@ -713,7 +837,6 @@ $(function () {
     // 执行页面内联脚本
     function execScripts(containerEl) {
         var scripts = containerEl.querySelectorAll('script');
-        // 先收集信息再操作，避免 NodeList 动态变化问题
         var scriptData = [];
         scripts.forEach(function(s) {
             var attrs = {};
@@ -722,13 +845,9 @@ $(function () {
             }
             scriptData.push({ src: s.src || '', text: s.textContent || '', attrs: attrs });
         });
-
-        // 移除旧脚本
         scripts.forEach(function(s) {
             if (s.parentNode) s.parentNode.removeChild(s);
         });
-
-        // 创建新脚本执行
         scriptData.forEach(function(data) {
             var script = document.createElement('script');
             Object.keys(data.attrs).forEach(function(key) {
@@ -745,7 +864,6 @@ $(function () {
 
     // AJAX 加载页面
     function loadPage(url, addToHistory) {
-        // 触发卸载事件，让当前页面脚本做清理
         document.dispatchEvent(new CustomEvent('pjax:beforeLoad', { detail: { url: url } }));
 
         fetch(url, { credentials: 'same-origin' })
@@ -760,21 +878,15 @@ $(function () {
 
                 if (!newContainer) throw new Error('No container in response');
 
-                // 替换内容
                 container.innerHTML = newContainer.innerHTML;
-
-                // 更新标题
                 document.title = newTitle;
 
-                // 更新 URL
                 if (addToHistory !== false) {
                     history.pushState({ url: url }, newTitle, url);
                 }
 
-                // 执行新页面脚本
                 execScripts(container);
 
-                // 重新初始化组件
                 if (typeof AOS !== 'undefined') AOS.refresh();
                 if (typeof M !== 'undefined' && M.Tooltip) {
                     M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
@@ -783,20 +895,10 @@ $(function () {
                     M.Materialbox.init(document.querySelectorAll('.materialboxed'), {});
                 }
 
-                // 滚动到顶部
                 window.scrollTo(0, 0);
-
-                // 通知页面脚本 PJAX 加载完成
                 document.dispatchEvent(new CustomEvent('pjax:complete', { detail: { url: url } }));
-
-                // 更新搜索索引（如果存在）
-                if (typeof searchFunc !== 'undefined' && window.searchData) {
-                    // 搜索需要重新绑定
-                }
             })
             .catch(function(err) {
-                // 失败时回退到完整页面跳转
-                console.log('PJAX fallback to full navigation:', err.message);
                 window.location = url;
             });
     }
@@ -809,28 +911,38 @@ $(function () {
         var href = link.getAttribute('href');
         if (!href || href === '#') return;
 
-        // Materialize 模态框触发器（搜索、登录等），放行
-        if (link.classList.contains('modal-trigger')) return;
+        // 外部链接 → 不拦截
+        if (link.hostname !== window.location.hostname) return;
 
-        // 不拦截的情况
-        if (link.hostname !== window.location.hostname) return;   // 外部链接
-        if (href === '#' || href === '') {                         // 空链接/锚点
+        // 新窗口 / 下载 / 修饰键 → 不拦截
+        if (link.getAttribute('target') === '_blank') return;
+        if (link.getAttribute('download') !== null) return;
+        if (link.getAttribute('data-no-pjax') !== null) return;
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+
+        // 锚点链接（#xxx）→ 阻止默认行为，手动处理
+        if (href.indexOf('#') === 0 && href.length > 1) {
             e.preventDefault();
-            return;
-        }
-        if (href.indexOf('#') === 0) {                             // 页面内锚点
-            e.preventDefault();
-            // 页面内锚点：滚动到目标位置
             var target = document.querySelector(href);
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            if (!target) return;
+
+            // Materialize 模态框 → 用 JS 打开
+            if (typeof M !== 'undefined' && target.classList.contains('modal')) {
+                var instance = M.Modal.getInstance(target);
+                if (instance) {
+                    instance.open();
+                }
+            } else {
+                // 普通锚点 → 平滑滚动
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
             return;
         }
-        if (link.getAttribute('target') === '_blank') return;      // 新窗口
-        if (link.getAttribute('download') !== null) return;        // 下载链接
-        if (link.getAttribute('data-no-pjax') !== null) return;    // 显式排除
-        if (href.indexOf('/search') === 0) return;                 // 搜索页
-        if (e.ctrlKey || e.metaKey || e.shiftKey) return;          // 修饰键（新标签）
 
+        // 搜索页面 → 不拦截
+        if (href.indexOf('/search') === 0) return;
+
+        // 站内链接 → PJAX 加载
         e.preventDefault();
         loadPage(href, true);
     });
@@ -840,7 +952,6 @@ $(function () {
         if (e.state && e.state.url) {
             loadPage(e.state.url, false);
         } else {
-            // 无状态则完整加载
             window.location.reload();
         }
     });
@@ -849,11 +960,6 @@ $(function () {
     if (!history.state) {
         history.replaceState({ url: window.location.href }, document.title, window.location.href);
     }
-
-    // 清理函数供页面脚本使用
-    window.pjax = {
-        load: loadPage
-    };
 })();
 </script>
 

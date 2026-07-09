@@ -157,7 +157,7 @@
   </li>
   
   <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light" data-no-pjax>
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
@@ -771,7 +771,6 @@ $(function () {
     // 执行页面内联脚本
     function execScripts(containerEl) {
         var scripts = containerEl.querySelectorAll('script');
-        // 先收集信息再操作，避免 NodeList 动态变化问题
         var scriptData = [];
         scripts.forEach(function(s) {
             var attrs = {};
@@ -780,13 +779,9 @@ $(function () {
             }
             scriptData.push({ src: s.src || '', text: s.textContent || '', attrs: attrs });
         });
-
-        // 移除旧脚本
         scripts.forEach(function(s) {
             if (s.parentNode) s.parentNode.removeChild(s);
         });
-
-        // 创建新脚本执行
         scriptData.forEach(function(data) {
             var script = document.createElement('script');
             Object.keys(data.attrs).forEach(function(key) {
@@ -803,7 +798,6 @@ $(function () {
 
     // AJAX 加载页面
     function loadPage(url, addToHistory) {
-        // 触发卸载事件，让当前页面脚本做清理
         document.dispatchEvent(new CustomEvent('pjax:beforeLoad', { detail: { url: url } }));
 
         fetch(url, { credentials: 'same-origin' })
@@ -818,21 +812,15 @@ $(function () {
 
                 if (!newContainer) throw new Error('No container in response');
 
-                // 替换内容
                 container.innerHTML = newContainer.innerHTML;
-
-                // 更新标题
                 document.title = newTitle;
 
-                // 更新 URL
                 if (addToHistory !== false) {
                     history.pushState({ url: url }, newTitle, url);
                 }
 
-                // 执行新页面脚本
                 execScripts(container);
 
-                // 重新初始化组件
                 if (typeof AOS !== 'undefined') AOS.refresh();
                 if (typeof M !== 'undefined' && M.Tooltip) {
                     M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
@@ -841,20 +829,10 @@ $(function () {
                     M.Materialbox.init(document.querySelectorAll('.materialboxed'), {});
                 }
 
-                // 滚动到顶部
                 window.scrollTo(0, 0);
-
-                // 通知页面脚本 PJAX 加载完成
                 document.dispatchEvent(new CustomEvent('pjax:complete', { detail: { url: url } }));
-
-                // 更新搜索索引（如果存在）
-                if (typeof searchFunc !== 'undefined' && window.searchData) {
-                    // 搜索需要重新绑定
-                }
             })
             .catch(function(err) {
-                // 失败时回退到完整页面跳转
-                console.log('PJAX fallback to full navigation:', err.message);
                 window.location = url;
             });
     }
@@ -867,28 +845,38 @@ $(function () {
         var href = link.getAttribute('href');
         if (!href || href === '#') return;
 
-        // Materialize 模态框触发器（搜索、登录等），放行
-        if (link.classList.contains('modal-trigger')) return;
+        // 外部链接 → 不拦截
+        if (link.hostname !== window.location.hostname) return;
 
-        // 不拦截的情况
-        if (link.hostname !== window.location.hostname) return;   // 外部链接
-        if (href === '#' || href === '') {                         // 空链接/锚点
+        // 新窗口 / 下载 / 修饰键 → 不拦截
+        if (link.getAttribute('target') === '_blank') return;
+        if (link.getAttribute('download') !== null) return;
+        if (link.getAttribute('data-no-pjax') !== null) return;
+        if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+
+        // 锚点链接（#xxx）→ 阻止默认行为，手动处理
+        if (href.indexOf('#') === 0 && href.length > 1) {
             e.preventDefault();
-            return;
-        }
-        if (href.indexOf('#') === 0) {                             // 页面内锚点
-            e.preventDefault();
-            // 页面内锚点：滚动到目标位置
             var target = document.querySelector(href);
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            if (!target) return;
+
+            // Materialize 模态框 → 用 JS 打开
+            if (typeof M !== 'undefined' && target.classList.contains('modal')) {
+                var instance = M.Modal.getInstance(target);
+                if (instance) {
+                    instance.open();
+                }
+            } else {
+                // 普通锚点 → 平滑滚动
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
             return;
         }
-        if (link.getAttribute('target') === '_blank') return;      // 新窗口
-        if (link.getAttribute('download') !== null) return;        // 下载链接
-        if (link.getAttribute('data-no-pjax') !== null) return;    // 显式排除
-        if (href.indexOf('/search') === 0) return;                 // 搜索页
-        if (e.ctrlKey || e.metaKey || e.shiftKey) return;          // 修饰键（新标签）
 
+        // 搜索页面 → 不拦截
+        if (href.indexOf('/search') === 0) return;
+
+        // 站内链接 → PJAX 加载
         e.preventDefault();
         loadPage(href, true);
     });
@@ -898,7 +886,6 @@ $(function () {
         if (e.state && e.state.url) {
             loadPage(e.state.url, false);
         } else {
-            // 无状态则完整加载
             window.location.reload();
         }
     });
@@ -907,11 +894,6 @@ $(function () {
     if (!history.state) {
         history.replaceState({ url: window.location.href }, document.title, window.location.href);
     }
-
-    // 清理函数供页面脚本使用
-    window.pjax = {
-        load: loadPage
-    };
 })();
 </script>
 

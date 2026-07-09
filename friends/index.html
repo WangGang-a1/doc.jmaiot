@@ -56,6 +56,7 @@
 <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
 <ul class="right nav-menu">
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/" class="waves-effect waves-light">
@@ -67,16 +68,18 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      <i class="fas fa-graduation-cap" style="zoom: 0.6;"></i>
       
       <span>教程</span>
     </a>
     
   </li>
+  
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -89,6 +92,7 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/contact" class="waves-effect waves-light">
@@ -100,6 +104,7 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/about" class="waves-effect waves-light">
@@ -110,6 +115,7 @@
     </a>
     
   </li>
+  
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -145,13 +151,14 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-users" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>推荐友商</span>
+      <span>知识库</span>
     </a>
     
   </li>
@@ -181,6 +188,7 @@
 
     <ul class="menu-list mobile-menu-list">
         
+        
         <li class="m-nav-item">
 		  
 			<a href="/" class="waves-effect waves-light">
@@ -192,17 +200,19 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/categories" class="waves-effect waves-light">
 				
-				    <i class="fa-fw fas fa-list"></i>
+				    <i class="fa-fw fas fa-graduation-cap"></i>
 				
 				教程
 			</a>
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/products" class="waves-effect waves-light">
@@ -214,6 +224,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/contact" class="waves-effect waves-light">
@@ -225,6 +236,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/about" class="waves-effect waves-light">
@@ -236,6 +248,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="javascript:;" data-no-pjax>
@@ -271,13 +284,14 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/friends" class="waves-effect waves-light">
 				
-				    <i class="fa-fw fas fa-users"></i>
+				    <i class="fa-fw fas fa-archive"></i>
 				
-				推荐友商
+				知识库
 			</a>
 	          
 	        </li>
@@ -338,293 +352,302 @@
 
     </div>
 </div>
+
 <style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
+    .kb-page { margin-top: -80px; margin-bottom: 40px; }
+
+    /* 左右布局 */
+    .kb-layout { display: flex; gap: 20px; align-items: flex-start; }
+    .kb-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 80px; }
+    .kb-main { flex: 1; min-width: 0; }
+
+    /* 侧边栏树形菜单 */
+    .kb-sidebar .card { margin: 0 !important; border-radius: 10px; }
+    .kb-sidebar .card-content { padding: 1rem 0.8rem; }
+    .kb-sidebar .tag-title { font-size: 1rem; font-weight: 700; color: #444; padding: 0 0.8rem 0.8rem; border-bottom: 1px solid #f0f0f0; margin-bottom: 0.5rem; }
+    .kb-sidebar .tag-title i { color: #0f9d58; }
+
+    .kb-tree {}
+    .kb-tree-cat {
+        display: flex; align-items: center; gap: 8px;
+        padding: 9px 12px; border-radius: 8px;
+        font-size: 0.9rem; font-weight: 600; color: #555;
+        cursor: pointer; user-select: none; transition: all 0.2s;
     }
+    .kb-tree-cat:hover { color: #0f9d58; background: #f6fdf8; }
+    .kb-tree-cat.expanded { color: #0f9d58; }
+    .kb-tree-cat i.tree-arrow { font-size: 0.7rem; transition: transform 0.2s; color: #bbb; width: 12px; text-align: center; }
+    .kb-tree-cat.expanded i.tree-arrow { transform: rotate(90deg); color: #0f9d58; }
+    .kb-tree-cat .tree-count { margin-left: auto; font-size: 0.75rem; color: #bbb; background: #f5f5f5; padding: 2px 8px; border-radius: 10px; }
+    .kb-tree-cat.expanded .tree-count { color: #0f9d58; background: #e8f5e9; }
 
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
+    .kb-tree-docs { display: none; }
+    .kb-tree-docs.open { display: block; }
+    .kb-tree-doc {
+        display: flex; align-items: center; gap: 8px;
+        padding: 7px 12px 7px 32px; border-radius: 6px;
+        font-size: 0.85rem; color: #777; cursor: pointer;
+        transition: all 0.15s;
     }
+    .kb-tree-doc:hover { color: #0f9d58; background: #f9fdf9; }
+    .kb-tree-doc.active { color: #0f9d58; font-weight: 600; background: #e8f5e9; }
+    .kb-tree-doc i { font-size: 0.7rem; color: #ddd; width: 14px; text-align: center; flex-shrink: 0; }
+    .kb-tree-doc.active i { color: #0f9d58; }
+    .kb-tree-doc-placeholder { opacity: 0.45; cursor: default; }
+    .kb-tree-doc-placeholder:hover { color: #777; background: transparent; }
 
-    .frind-ship img {
-        border-radius: 50%;
+    /* 右侧主内容 */
+    .kb-main .card { margin-top: 0 !important; border-radius: 10px; }
+    .kb-section { margin-bottom: 1.5rem; }
+    .kb-section:last-child { margin-bottom: 0; }
+    .kb-section-title {
+        font-size: 1.05rem; font-weight: 700; color: #444;
+        padding-bottom: 0.5rem; margin-bottom: 0.8rem;
+        border-bottom: 2px solid #f0f0f0;
+        display: flex; align-items: center; gap: 8px;
     }
+    .kb-section-title i { color: #0f9d58; }
 
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
+    .kb-doc-item {
+        display: flex; align-items: flex-start; gap: 12px;
+        padding: 12px 14px; border-radius: 10px;
+        transition: background 0.2s; margin-bottom: 2px;
     }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
+    .kb-doc-item:hover { background: #fafafa; }
+    .kb-doc-icon {
+        width: 34px; height: 34px; border-radius: 8px;
+        background: #e8f5e9; color: #0f9d58;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; font-size: 0.85rem;
     }
+    .kb-doc-info { flex: 1; min-width: 0; }
+    .kb-doc-name { font-size: 0.93rem; font-weight: 600; margin-bottom: 2px; }
+    .kb-doc-name a { color: #333; }
+    .kb-doc-name a:hover { color: #0f9d58; }
+    .kb-doc-desc { font-size: 0.83rem; color: #999; line-height: 1.5;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .kb-doc-date { font-size: 0.76rem; color: #ccc; white-space: nowrap; padding-top: 2px; }
+    .kb-doc-placeholder { opacity: 0.45; }
 
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
+    @media only screen and (max-width: 768px) {
+        .kb-layout { flex-direction: column; }
+        .kb-sidebar { width: 100%; position: static; }
+        .kb-tree-doc { padding-left: 24px; }
     }
 </style>
 
 <main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;推荐友商
-                </div>
-                <article id="friends-link">
-                    
-                    
-                    <div class="row tags-posts friend-all">
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://www.shengche.top/img/logo.png" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">圣彻智能</h1>
-                                            <p style="position: relative;top: -35px;">致力于万物智能化</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="http://www.shengche.top/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            点击前往
-                                        </a>
-                                    </div>
-                                </div>
+    <div class="container kb-page">
+        
+
+        <div class="kb-layout">
+            <!-- ===== 左侧树形导航 ===== -->
+            <div class="kb-sidebar" data-aos="fade-right">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="tag-title"><i class="fas fa-archive"></i>&nbsp;知识库</div>
+                        <div class="kb-tree">
+                            
+                            <div class="kb-tree-cat expanded" data-index="0">
+                                <i class="fas fa-chevron-right tree-arrow"></i>
+                                <i class="fas fa-microchip" style="font-size:0.8rem;color:#0f9d58;"></i>
+                                产品手册
+                                <span class="tree-count">2</span>
                             </div>
+                            <div class="kb-tree-docs open">
+                                
+                                <div class="kb-tree-doc" data-cat="0" data-doc="0" data-url="/products/wifi-dtu">
+                                    <i class="fas fa-file-alt"></i> WiFi-DTU 使用手册
+                                </div>
+                                
+                                <div class="kb-tree-doc" data-cat="0" data-doc="1" data-url="/products/4g-dtu">
+                                    <i class="fas fa-file-alt"></i> 4G-DTU 使用手册
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="kb-tree-cat expanded" data-index="1">
+                                <i class="fas fa-chevron-right tree-arrow"></i>
+                                <i class="fas fa-code" style="font-size:0.8rem;color:#0f9d58;"></i>
+                                技术文档
+                                <span class="tree-count">4</span>
+                            </div>
+                            <div class="kb-tree-docs open">
+                                
+                                <div class="kb-tree-doc" data-cat="1" data-doc="0" data-url="/kb/modbus">
+                                    <i class="fas fa-file-alt"></i> Modbus 通信协议详解
+                                </div>
+                                
+                                <div class="kb-tree-doc" data-cat="1" data-doc="1" data-url="/kb/mqtt">
+                                    <i class="fas fa-file-alt"></i> MQTT 协议入门与实践
+                                </div>
+                                
+                                <div class="kb-tree-doc" data-cat="1" data-doc="2" data-url="/kb/rs485">
+                                    <i class="fas fa-file-alt"></i> RS485 通信基础
+                                </div>
+                                
+                                <div class="kb-tree-doc" data-cat="1" data-doc="3" data-url="/kb/dtu-compare">
+                                    <i class="fas fa-file-alt"></i> DTU 选型对比指南
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== 右侧文档列表 ===== -->
+            <div class="kb-main" data-aos="fade-left">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="tag-title center-align" style="font-size:1.3rem;font-weight:600;color:#333;margin-bottom:1rem;">
+                            <i class="fas fa-archive"></i>&nbsp;&nbsp;知识库
+                        </div>
+                        
+                        <div class="kb-section" id="kb-cat-0">
+                            <div class="kb-section-title">
+                                <i class="fas fa-microchip"></i> 产品手册
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/products/wifi-dtu" >WiFi-DTU 使用手册</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">WiFi 数传模块完整配置指南，含 AT 指令集、Web 配置与 MQTT 对接示例</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-01</div>
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/products/4g-dtu" >4G-DTU 使用手册</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">4G 数传终端网络配置、云平台对接与 Modbus RTU/TCP 协议转换说明</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-02</div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="kb-section" id="kb-cat-1">
+                            <div class="kb-section-title">
+                                <i class="fas fa-code"></i> 技术文档
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/kb/modbus" >Modbus 通信协议详解</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">Modbus RTU/ASCII/TCP 三种模式对比，寄存器映射、功能码说明与调试工具推荐</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-07</div>
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/kb/mqtt" >MQTT 协议入门与实践</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">发布/订阅模式、QoS 等级选择、Mosquitto 等 Broker 部署与客户端开发示例</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-08</div>
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/kb/rs485" >RS485 通信基础</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">差分信号原理、接线规范、终端电阻计算、偏置电阻配置与常见故障排查</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-06</div>
+                            </div>
+                            
+                            <div class="kb-doc-item">
+                                <div class="kb-doc-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="kb-doc-info">
+                                    <div class="kb-doc-name">
+                                        
+                                        <a href="/kb/dtu-compare" >DTU 选型对比指南</a>
+                                        
+                                    </div>
+                                    <div class="kb-doc-desc">WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议</div>
+                                </div>
+                                <div class="kb-doc-date">2026-07-05</div>
+                            </div>
+                            
                         </div>
                         
                     </div>
-                    
-                </article>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-content">
-                
-            </div>
-        </div>
-        <div class="card">
 
-            
-            <link rel="stylesheet" href="https://unpkg.com/gitalk@1/dist/gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>留言</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="https://unpkg.com/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-(function() {
-    var container = document.getElementById('gitalk-container');
-    if (!container) return;
-    // 如果已渲染过（PJAX 回退等场景），清空容器
-    container.innerHTML = '';
-
-    var gitalk = new Gitalk({
-        clientID: 'Ov23liu2EcoyMeMVfgXt',
-        clientSecret: '1c6294ae5d01cbff6c97c075af44dcd4fbb996fb',
-        repo: 'doc.jmaiot',
-        owner: 'WangGang-a1',
-        admin: ["WangGang-a1"],
-        id: '2026-07-09T00-11-15',
-        distractionFreeMode: false
-    });
-
-    gitalk.render('gitalk-container');
-})();
-</script>
-
-            
-
-            
-
-            
-
-            
-
-            
-
-        </div>
     </div>
 </main>
 
 <script>
-    $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
+(function() {
+    // 侧边栏树形展开/收起
+    document.querySelectorAll('.kb-tree-cat').forEach(function(cat) {
+        cat.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+            var docs = this.nextElementSibling;
+            if (docs && docs.classList.contains('kb-tree-docs')) {
+                docs.classList.toggle('open');
+            }
         });
     });
+
+    // 侧边栏文档点击 → 滚动到右侧对应分类
+    document.querySelectorAll('.kb-tree-doc').forEach(function(doc) {
+        doc.addEventListener('click', function() {
+            var url = this.dataset.url;
+            if (url) {
+                // 有链接的直接跳转
+                if (url.indexOf('http') === 0) {
+                    window.open(url, '_blank');
+                } else {
+                    window.pjax && window.pjax.load(url);
+                }
+            }
+            // 高亮当前
+            document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+})();
 </script>
 
     </div>
@@ -763,10 +786,6 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/WangGang-a1" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
 
 
     <a href="mailto:2945333789@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
@@ -817,6 +836,13 @@
     <div class="modal-content">
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <!-- 搜索类型筛选 -->
+            <div class="search-tabs">
+                <span class="search-tab active" data-type="all">全部</span>
+                <span class="search-tab" data-type="product">产品</span>
+                <span class="search-tab" data-type="post">教程</span>
+                <span class="search-tab" data-type="kb">知识库</span>
+            </div>
             <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
@@ -824,11 +850,177 @@
     </div>
 </div>
 
+<style>
+.search-tabs {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 12px;
+}
+.search-tab {
+    padding: 5px 14px;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    color: #888;
+    background: #f5f5f5;
+    transition: all 0.2s;
+    user-select: none;
+}
+.search-tab:hover { color: #0f9d58; background: #e8f5e9; }
+.search-tab.active {
+    color: #fff;
+    background: linear-gradient(135deg, #4cbf30 0%, #0f9d58 100%);
+}
+.search-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.badge-product { color: #ff6f00; background: #fff3e0; }
+.badge-post { color: #1565c0; background: #e3f2fd; }
+.badge-kb { color: #0f9d58; background: #e8f5e9; }
+</style>
+
+<script>
+// 可见教程 URL 集合（用于过滤 search.xml 中隐藏的教程）
+var visiblePostUrls = {};
+
+
+// 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
+var productSearchData = [
+    
+    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/4g-dtu/index.html', type: 'product' },
+    
+    { title: 'WiFi-DTU 无线数据传输终端', content: 'WiFi 转串口数据透传模块，支持 TCP/UDP/MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/wifi-dtu/index.html', type: 'product' }
+    
+];
+
+// 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
+var kbSearchData = [
+    
+    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' },
+    
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
+    
+    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
+    
+    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' }
+    
+];
+</script>
+
 <script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
+<script>
+(function() {
+    var searchType = 'all';
+    var TAB_SELECTOR = '.search-tab';
+
+    // 加载搜索数据
+    $.ajax({
+        url: '/search.xml',
+        dataType: 'xml',
+        success: function(xml) {
+            var postDatas = $('entry', xml).map(function() {
+                return {
+                    title: $('title', this).text(),
+                    content: $('content', this).text().replace(/<[^>]+>/g, ''),
+                    url: $('url', this).text(),
+                    type: 'post'
+                };
+            }).get();
+
+            // 过滤掉隐藏的教程（visible: false）
+            postDatas = postDatas.filter(function(p) {
+                // 规范化 URL 比较（去掉首尾斜杠）
+                var key = p.url.replace(/\/+$/, '');
+                return visiblePostUrls[key] || visiblePostUrls['/' + key] || visiblePostUrls[key + '/'] || visiblePostUrls['/' + key + '/'];
+            });
+
+            var allDatas = postDatas.concat(productSearchData).concat(kbSearchData);
+
+            var $input = document.getElementById('searchInput');
+            var $result = document.getElementById('searchResult');
+
+            // 类型筛选点击
+            document.querySelectorAll(TAB_SELECTOR).forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll(TAB_SELECTOR).forEach(function(t) { t.classList.remove('active'); });
+                    this.classList.add('active');
+                    searchType = this.dataset.type;
+                    $input.dispatchEvent(new Event('input')); // 重新搜索
+                });
+            });
+
+            // 搜索输入
+            $input.addEventListener('input', function() {
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $result.innerHTML = '';
+
+                if (this.value.trim().length <= 0) return;
+
+                var str = '<ul class="search-result-list">';
+                var count = 0;
+
+                allDatas.forEach(function(data) {
+                    // 类型筛选
+                    if (searchType !== 'all' && data.type !== searchType) return;
+
+                    if (!data.title || !data.content) return;
+
+                    var title = data.title.trim().toLowerCase();
+                    var content = data.content.trim().toLowerCase();
+                    var isMatch = true;
+                    var firstOccur = -1;
+
+                    keywords.forEach(function(kw, i) {
+                        var ti = title.indexOf(kw);
+                        var ci = content.indexOf(kw);
+                        if (ti < 0 && ci < 0) {
+                            isMatch = false;
+                        } else {
+                            if (ci < 0) ci = 0;
+                            if (i === 0) firstOccur = ci;
+                        }
+                    });
+
+                    if (!isMatch) return;
+                    count++;
+
+                    var typeBadge = '';
+                    if (data.type === 'product') typeBadge = '<span class="search-badge badge-product">产品</span>';
+                    else if (data.type === 'kb') typeBadge = '<span class="search-badge badge-kb">知识库</span>';
+                    else typeBadge = '<span class="search-badge badge-post">教程</span>';
+
+                    str += '<li><a href="' + data.url + '" class="search-result-title">' + typeBadge + data.title + '</a>';
+
+                    if (firstOccur >= 0) {
+                        var start = Math.max(0, firstOccur - 20);
+                        var end = Math.min(content.length, firstOccur + 80);
+                        if (start === 0) end = Math.min(content.length, 100);
+                        var snippet = content.substring(start, end);
+                        keywords.forEach(function(kw) {
+                            var reg = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                            snippet = snippet.replace(reg, '<em class="search-keyword">' + kw + '</em>');
+                        });
+                        str += '<p class="search-result">' + snippet + '...</p>';
+                    }
+                    str += '</li>';
+                });
+
+                if (count === 0) {
+                    str += '<li class="center-align" style="padding:2rem;color:#999;"><i class="far fa-frown fa-2x"></i><p style="margin-top:0.5rem;">没有找到相关内容，换个关键词试试</p></li>';
+                }
+
+                str += '</ul>';
+                $result.innerHTML = str;
+            });
+        }
+    });
+})();
 </script>
 
     <!-- 回到顶部按钮 -->

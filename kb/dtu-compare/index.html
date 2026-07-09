@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 博客, 京墨科技">
+    <meta name="keywords" content="DTU 选型对比指南, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 博客 | 京墨科技</title>
+    <title>DTU 选型对比指南 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -354,91 +354,124 @@
 </div>
 
 <main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;教程标签
-            </div>
-            <div class="tag-chips">
+    <article class="container kb-article">
+        <!-- 文章头部 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <h1 class="kb-title">DTU 选型对比指南</h1>
+                <div class="kb-meta">
+                    <span><i class="far fa-calendar-alt"></i> 2026-07-05</span>
+                    
+                </div>
                 
-                
-                <a href="/tags/%E5%BB%BA%E7%AB%99/" title="建站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="建站" style="background-color: #F9EBEA;">建站
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="博客" style="background-color: #F5EEF8;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="经验" style="background-color: #D5F5E3;">经验
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="kb-tags">
+                    
+                    <span class="chip bg-color">DTU</span>
+                    
+                    <span class="chip bg-color">选型</span>
+                    
+                    <span class="chip bg-color">WiFi</span>
+                    
+                    <span class="chip bg-color">4G</span>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
 
-    
+        <!-- 文章正文 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <div class="markdown-body">
+                    <h2 id="WiFi-DTU-vs-4G-DTU"><a href="#WiFi-DTU-vs-4G-DTU" class="headerlink" title="WiFi-DTU vs 4G-DTU"></a>WiFi-DTU vs 4G-DTU</h2><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>WiFi-DTU</th>
+<th>4G-DTU</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>通信方式</strong></td>
+<td>WiFi 2.4GHz</td>
+<td>4G LTE Cat.1</td>
+</tr>
+<tr>
+<td><strong>覆盖范围</strong></td>
+<td>100m（空旷）</td>
+<td>有基站信号即可</td>
+</tr>
+<tr>
+<td><strong>部署要求</strong></td>
+<td>需 WiFi 路由器</td>
+<td>仅需 SIM 卡</td>
+</tr>
+<tr>
+<td><strong>功耗</strong></td>
+<td>低（50μA 休眠）</td>
+<td>中（4G 模块功耗较高）</td>
+</tr>
+<tr>
+<td><strong>通信延迟</strong></td>
+<td>&lt;10ms</td>
+<td>50-200ms</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>低</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>接口</strong></td>
+<td>TTL UART</td>
+<td>RS232 &#x2F; RS485 &#x2F; TTL</td>
+</tr>
+<tr>
+<td><strong>供电</strong></td>
+<td>3.3V-5V</td>
+<td>5V-36V 宽压</td>
+</tr>
+</tbody></table>
+<h2 id="场景选择"><a href="#场景选择" class="headerlink" title="场景选择"></a>场景选择</h2><h3 id="选-WiFi-DTU"><a href="#选-WiFi-DTU" class="headerlink" title="选 WiFi-DTU"></a>选 WiFi-DTU</h3><ul>
+<li>现场已有稳定 WiFi 覆盖</li>
+<li>对功耗敏感（电池供电）</li>
+<li>要求低延迟（&lt;10ms）</li>
+<li>短距离数据采集</li>
+</ul>
+<h3 id="选-4G-DTU"><a href="#选-4G-DTU" class="headerlink" title="选 4G-DTU"></a>选 4G-DTU</h3><ul>
+<li>野外&#x2F;远程&#x2F;无 WiFi 覆盖</li>
+<li>需要 RS485 接口</li>
+<li>移动场景（车辆、无人机）</li>
+<li>需要宽压供电</li>
+</ul>
+<h2 id="混合组网"><a href="#混合组网" class="headerlink" title="混合组网"></a>混合组网</h2><p>实际项目中常采用 <strong>WiFi + 4G 混合组网</strong>：传感器 → WiFi-DTU → 本地网关 → 4G-DTU → 云平台。兼顾本地低延迟和远程广覆盖。</p>
+<p>两款 DTU 均支持 <strong>MQTT &#x2F; TCP &#x2F; UDP &#x2F; HTTP</strong> 协议，可对接阿里云 IoT、OneNET、EMQX、AWS IoT 等主流云平台。</p>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="建站, 博客, 经验" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2026/07/09/dajiangerenboke/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
-                            
-                            <span class="card-title">搭建个人博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BB%BA%E7%AB%99/" class="post-category">
-                                建站
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
         </div>
     </article>
 </main>
 
+<style>
+    .kb-article { margin-top: 2rem; margin-bottom: 3rem; }
+    .kb-article .card { border-radius: 10px; margin: 0 0 1.2rem !important; }
+    .kb-title { font-size: 1.7rem; font-weight: 700; color: #333; margin: 0 0 0.6rem; }
+    .kb-meta { font-size: 0.88rem; color: #999; margin-bottom: 0.8rem; display: flex; flex-wrap: wrap; gap: 16px; }
+    .kb-meta i { margin-right: 4px; color: #bbb; }
+    .kb-tags { margin-top: 0.5rem; }
+    .markdown-body { color: #555; line-height: 1.9; font-size: 0.95rem; }
+    .markdown-body h2 { color: #333; margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    .markdown-body h3 { color: #444; margin-top: 1.2rem; }
+    .markdown-body table { font-size: 0.9rem; }
+    .markdown-body img { max-width: 100%; border-radius: 6px; }
+    .markdown-body pre { border-radius: 8px; }
+    .markdown-body blockquote { border-left-color: #0f9d58; }
 
+    @media only screen and (max-width: 600px) {
+        .kb-title { font-size: 1.35rem; }
+    }
+</style>
 
     </div>
 

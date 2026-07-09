@@ -56,6 +56,7 @@
 <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
 <ul class="right nav-menu">
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/" class="waves-effect waves-light">
@@ -67,16 +68,18 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      <i class="fas fa-graduation-cap" style="zoom: 0.6;"></i>
       
       <span>教程</span>
     </a>
     
   </li>
+  
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -89,6 +92,7 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/contact" class="waves-effect waves-light">
@@ -100,6 +104,7 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/about" class="waves-effect waves-light">
@@ -110,6 +115,7 @@
     </a>
     
   </li>
+  
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -145,13 +151,14 @@
     
   </li>
   
+  
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-users" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>推荐友商</span>
+      <span>知识库</span>
     </a>
     
   </li>
@@ -181,6 +188,7 @@
 
     <ul class="menu-list mobile-menu-list">
         
+        
         <li class="m-nav-item">
 		  
 			<a href="/" class="waves-effect waves-light">
@@ -192,17 +200,19 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/categories" class="waves-effect waves-light">
 				
-				    <i class="fa-fw fas fa-list"></i>
+				    <i class="fa-fw fas fa-graduation-cap"></i>
 				
 				教程
 			</a>
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/products" class="waves-effect waves-light">
@@ -214,6 +224,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/contact" class="waves-effect waves-light">
@@ -225,6 +236,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/about" class="waves-effect waves-light">
@@ -236,6 +248,7 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="javascript:;" data-no-pjax>
@@ -271,13 +284,14 @@
 	          
 	        </li>
 	        
+        
         <li class="m-nav-item">
 		  
 			<a href="/friends" class="waves-effect waves-light">
 				
-				    <i class="fa-fw fas fa-users"></i>
+				    <i class="fa-fw fas fa-archive"></i>
 				
-				推荐友商
+				知识库
 			</a>
 	          
 	        </li>
@@ -342,167 +356,11 @@
 <main class="content">
 
     
-    <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
-
-    
-
-    let option = {
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2025-07-09", "2026-07-09"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                color: '#196127',
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'cn',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'cn',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2025-07-09", 0], ["2025-07-10", 0], ["2025-07-11", 0], ["2025-07-12", 0], ["2025-07-13", 0], ["2025-07-14", 0], ["2025-07-15", 0], ["2025-07-16", 0], ["2025-07-17", 0], ["2025-07-18", 0], ["2025-07-19", 0], ["2025-07-20", 0], ["2025-07-21", 0], ["2025-07-22", 0], ["2025-07-23", 0], ["2025-07-24", 0], ["2025-07-25", 0], ["2025-07-26", 0], ["2025-07-27", 0], ["2025-07-28", 0], ["2025-07-29", 0], ["2025-07-30", 0], ["2025-07-31", 0], ["2025-08-01", 0], ["2025-08-02", 0], ["2025-08-03", 0], ["2025-08-04", 0], ["2025-08-05", 0], ["2025-08-06", 0], ["2025-08-07", 0], ["2025-08-08", 0], ["2025-08-09", 0], ["2025-08-10", 0], ["2025-08-11", 0], ["2025-08-12", 0], ["2025-08-13", 0], ["2025-08-14", 0], ["2025-08-15", 0], ["2025-08-16", 0], ["2025-08-17", 0], ["2025-08-18", 0], ["2025-08-19", 0], ["2025-08-20", 0], ["2025-08-21", 0], ["2025-08-22", 0], ["2025-08-23", 0], ["2025-08-24", 0], ["2025-08-25", 0], ["2025-08-26", 0], ["2025-08-27", 0], ["2025-08-28", 0], ["2025-08-29", 0], ["2025-08-30", 0], ["2025-08-31", 0], ["2025-09-01", 0], ["2025-09-02", 0], ["2025-09-03", 0], ["2025-09-04", 0], ["2025-09-05", 0], ["2025-09-06", 0], ["2025-09-07", 0], ["2025-09-08", 0], ["2025-09-09", 0], ["2025-09-10", 0], ["2025-09-11", 0], ["2025-09-12", 0], ["2025-09-13", 0], ["2025-09-14", 0], ["2025-09-15", 0], ["2025-09-16", 0], ["2025-09-17", 0], ["2025-09-18", 0], ["2025-09-19", 0], ["2025-09-20", 0], ["2025-09-21", 0], ["2025-09-22", 0], ["2025-09-23", 0], ["2025-09-24", 0], ["2025-09-25", 0], ["2025-09-26", 0], ["2025-09-27", 0], ["2025-09-28", 0], ["2025-09-29", 0], ["2025-09-30", 0], ["2025-10-01", 0], ["2025-10-02", 0], ["2025-10-03", 0], ["2025-10-04", 0], ["2025-10-05", 0], ["2025-10-06", 0], ["2025-10-07", 0], ["2025-10-08", 0], ["2025-10-09", 0], ["2025-10-10", 0], ["2025-10-11", 0], ["2025-10-12", 0], ["2025-10-13", 0], ["2025-10-14", 0], ["2025-10-15", 0], ["2025-10-16", 0], ["2025-10-17", 0], ["2025-10-18", 0], ["2025-10-19", 0], ["2025-10-20", 0], ["2025-10-21", 0], ["2025-10-22", 0], ["2025-10-23", 0], ["2025-10-24", 0], ["2025-10-25", 0], ["2025-10-26", 0], ["2025-10-27", 0], ["2025-10-28", 0], ["2025-10-29", 0], ["2025-10-30", 0], ["2025-10-31", 0], ["2025-11-01", 0], ["2025-11-02", 0], ["2025-11-03", 0], ["2025-11-04", 0], ["2025-11-05", 0], ["2025-11-06", 0], ["2025-11-07", 0], ["2025-11-08", 0], ["2025-11-09", 0], ["2025-11-10", 0], ["2025-11-11", 0], ["2025-11-12", 0], ["2025-11-13", 0], ["2025-11-14", 0], ["2025-11-15", 0], ["2025-11-16", 0], ["2025-11-17", 0], ["2025-11-18", 0], ["2025-11-19", 0], ["2025-11-20", 0], ["2025-11-21", 0], ["2025-11-22", 0], ["2025-11-23", 0], ["2025-11-24", 0], ["2025-11-25", 0], ["2025-11-26", 0], ["2025-11-27", 0], ["2025-11-28", 0], ["2025-11-29", 0], ["2025-11-30", 0], ["2025-12-01", 0], ["2025-12-02", 0], ["2025-12-03", 0], ["2025-12-04", 0], ["2025-12-05", 0], ["2025-12-06", 0], ["2025-12-07", 0], ["2025-12-08", 0], ["2025-12-09", 0], ["2025-12-10", 0], ["2025-12-11", 0], ["2025-12-12", 0], ["2025-12-13", 0], ["2025-12-14", 0], ["2025-12-15", 0], ["2025-12-16", 0], ["2025-12-17", 0], ["2025-12-18", 0], ["2025-12-19", 0], ["2025-12-20", 0], ["2025-12-21", 0], ["2025-12-22", 0], ["2025-12-23", 0], ["2025-12-24", 0], ["2025-12-25", 0], ["2025-12-26", 0], ["2025-12-27", 0], ["2025-12-28", 0], ["2025-12-29", 0], ["2025-12-30", 0], ["2025-12-31", 0], ["2026-01-01", 0], ["2026-01-02", 0], ["2026-01-03", 0], ["2026-01-04", 0], ["2026-01-05", 0], ["2026-01-06", 0], ["2026-01-07", 0], ["2026-01-08", 0], ["2026-01-09", 0], ["2026-01-10", 0], ["2026-01-11", 0], ["2026-01-12", 0], ["2026-01-13", 0], ["2026-01-14", 0], ["2026-01-15", 0], ["2026-01-16", 0], ["2026-01-17", 0], ["2026-01-18", 0], ["2026-01-19", 0], ["2026-01-20", 0], ["2026-01-21", 0], ["2026-01-22", 0], ["2026-01-23", 0], ["2026-01-24", 0], ["2026-01-25", 0], ["2026-01-26", 0], ["2026-01-27", 0], ["2026-01-28", 0], ["2026-01-29", 0], ["2026-01-30", 0], ["2026-01-31", 0], ["2026-02-01", 0], ["2026-02-02", 0], ["2026-02-03", 0], ["2026-02-04", 0], ["2026-02-05", 0], ["2026-02-06", 0], ["2026-02-07", 0], ["2026-02-08", 0], ["2026-02-09", 0], ["2026-02-10", 0], ["2026-02-11", 0], ["2026-02-12", 0], ["2026-02-13", 0], ["2026-02-14", 0], ["2026-02-15", 0], ["2026-02-16", 0], ["2026-02-17", 0], ["2026-02-18", 0], ["2026-02-19", 0], ["2026-02-20", 0], ["2026-02-21", 0], ["2026-02-22", 0], ["2026-02-23", 0], ["2026-02-24", 0], ["2026-02-25", 0], ["2026-02-26", 0], ["2026-02-27", 0], ["2026-02-28", 0], ["2026-03-01", 0], ["2026-03-02", 0], ["2026-03-03", 0], ["2026-03-04", 0], ["2026-03-05", 0], ["2026-03-06", 0], ["2026-03-07", 0], ["2026-03-08", 0], ["2026-03-09", 0], ["2026-03-10", 0], ["2026-03-11", 0], ["2026-03-12", 0], ["2026-03-13", 0], ["2026-03-14", 0], ["2026-03-15", 0], ["2026-03-16", 0], ["2026-03-17", 0], ["2026-03-18", 0], ["2026-03-19", 0], ["2026-03-20", 0], ["2026-03-21", 0], ["2026-03-22", 0], ["2026-03-23", 0], ["2026-03-24", 0], ["2026-03-25", 0], ["2026-03-26", 0], ["2026-03-27", 0], ["2026-03-28", 0], ["2026-03-29", 0], ["2026-03-30", 0], ["2026-03-31", 0], ["2026-04-01", 0], ["2026-04-02", 0], ["2026-04-03", 0], ["2026-04-04", 0], ["2026-04-05", 0], ["2026-04-06", 0], ["2026-04-07", 0], ["2026-04-08", 0], ["2026-04-09", 0], ["2026-04-10", 0], ["2026-04-11", 0], ["2026-04-12", 0], ["2026-04-13", 0], ["2026-04-14", 0], ["2026-04-15", 0], ["2026-04-16", 0], ["2026-04-17", 0], ["2026-04-18", 0], ["2026-04-19", 0], ["2026-04-20", 0], ["2026-04-21", 0], ["2026-04-22", 0], ["2026-04-23", 0], ["2026-04-24", 0], ["2026-04-25", 0], ["2026-04-26", 0], ["2026-04-27", 0], ["2026-04-28", 0], ["2026-04-29", 0], ["2026-04-30", 0], ["2026-05-01", 0], ["2026-05-02", 0], ["2026-05-03", 0], ["2026-05-04", 0], ["2026-05-05", 0], ["2026-05-06", 0], ["2026-05-07", 0], ["2026-05-08", 0], ["2026-05-09", 0], ["2026-05-10", 0], ["2026-05-11", 0], ["2026-05-12", 0], ["2026-05-13", 0], ["2026-05-14", 0], ["2026-05-15", 0], ["2026-05-16", 0], ["2026-05-17", 0], ["2026-05-18", 0], ["2026-05-19", 0], ["2026-05-20", 0], ["2026-05-21", 0], ["2026-05-22", 0], ["2026-05-23", 0], ["2026-05-24", 0], ["2026-05-25", 0], ["2026-05-26", 0], ["2026-05-27", 0], ["2026-05-28", 0], ["2026-05-29", 0], ["2026-05-30", 0], ["2026-05-31", 0], ["2026-06-01", 0], ["2026-06-02", 0], ["2026-06-03", 0], ["2026-06-04", 0], ["2026-06-05", 0], ["2026-06-06", 0], ["2026-06-07", 0], ["2026-06-08", 0], ["2026-06-09", 0], ["2026-06-10", 0], ["2026-06-11", 0], ["2026-06-12", 0], ["2026-06-13", 0], ["2026-06-14", 0], ["2026-06-15", 0], ["2026-06-16", 0], ["2026-06-17", 0], ["2026-06-18", 0], ["2026-06-19", 0], ["2026-06-20", 0], ["2026-06-21", 0], ["2026-06-22", 0], ["2026-06-23", 0], ["2026-06-24", 0], ["2026-06-25", 0], ["2026-06-26", 0], ["2026-06-27", 0], ["2026-06-28", 0], ["2026-06-29", 0], ["2026-06-30", 0], ["2026-07-01", 0], ["2026-07-02", 0], ["2026-07-03", 0], ["2026-07-04", 0], ["2026-07-05", 0], ["2026-07-06", 0], ["2026-07-07", 0], ["2026-07-08", 0], ["2026-07-09", 1]]
-        }]
-
-    };
-
-    myChart.setOption(option);
-</script>
-
-    
 
     
 
     <div id="cd-timeline" class="container">
         
-        <div class="cd-timeline-block">
-
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2026">2026</a>
-            </div>
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2026/07">07</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>09</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2026/07/09/dajiangerenboke/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
-                                
-                                <span class="card-title">搭建个人博客</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    使用GitHub和coding（部署会收费）作为终端，Hexo为框架建立个人博客
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories?category=建站" class="post-category">
-                                    建站
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/categories?tag=建站"><span class="chip bg-color">建站</span></a>
-                            
-                            <a href="/categories?tag=博客"><span class="chip bg-color">博客</span></a>
-                            
-                            <a href="/categories?tag=经验"><span class="chip bg-color">经验</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
         
     </div>
 
@@ -646,10 +504,6 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/WangGang-a1" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
 
 
     <a href="mailto:2945333789@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
@@ -700,6 +554,13 @@
     <div class="modal-content">
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <!-- 搜索类型筛选 -->
+            <div class="search-tabs">
+                <span class="search-tab active" data-type="all">全部</span>
+                <span class="search-tab" data-type="product">产品</span>
+                <span class="search-tab" data-type="post">教程</span>
+                <span class="search-tab" data-type="kb">知识库</span>
+            </div>
             <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
@@ -707,11 +568,177 @@
     </div>
 </div>
 
+<style>
+.search-tabs {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 12px;
+}
+.search-tab {
+    padding: 5px 14px;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    color: #888;
+    background: #f5f5f5;
+    transition: all 0.2s;
+    user-select: none;
+}
+.search-tab:hover { color: #0f9d58; background: #e8f5e9; }
+.search-tab.active {
+    color: #fff;
+    background: linear-gradient(135deg, #4cbf30 0%, #0f9d58 100%);
+}
+.search-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.badge-product { color: #ff6f00; background: #fff3e0; }
+.badge-post { color: #1565c0; background: #e3f2fd; }
+.badge-kb { color: #0f9d58; background: #e8f5e9; }
+</style>
+
+<script>
+// 可见教程 URL 集合（用于过滤 search.xml 中隐藏的教程）
+var visiblePostUrls = {};
+
+
+// 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
+var productSearchData = [
+    
+    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/4g-dtu/index.html', type: 'product' },
+    
+    { title: 'WiFi-DTU 无线数据传输终端', content: 'WiFi 转串口数据透传模块，支持 TCP/UDP/MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/wifi-dtu/index.html', type: 'product' }
+    
+];
+
+// 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
+var kbSearchData = [
+    
+    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' },
+    
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
+    
+    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
+    
+    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' }
+    
+];
+</script>
+
 <script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
+<script>
+(function() {
+    var searchType = 'all';
+    var TAB_SELECTOR = '.search-tab';
+
+    // 加载搜索数据
+    $.ajax({
+        url: '/search.xml',
+        dataType: 'xml',
+        success: function(xml) {
+            var postDatas = $('entry', xml).map(function() {
+                return {
+                    title: $('title', this).text(),
+                    content: $('content', this).text().replace(/<[^>]+>/g, ''),
+                    url: $('url', this).text(),
+                    type: 'post'
+                };
+            }).get();
+
+            // 过滤掉隐藏的教程（visible: false）
+            postDatas = postDatas.filter(function(p) {
+                // 规范化 URL 比较（去掉首尾斜杠）
+                var key = p.url.replace(/\/+$/, '');
+                return visiblePostUrls[key] || visiblePostUrls['/' + key] || visiblePostUrls[key + '/'] || visiblePostUrls['/' + key + '/'];
+            });
+
+            var allDatas = postDatas.concat(productSearchData).concat(kbSearchData);
+
+            var $input = document.getElementById('searchInput');
+            var $result = document.getElementById('searchResult');
+
+            // 类型筛选点击
+            document.querySelectorAll(TAB_SELECTOR).forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll(TAB_SELECTOR).forEach(function(t) { t.classList.remove('active'); });
+                    this.classList.add('active');
+                    searchType = this.dataset.type;
+                    $input.dispatchEvent(new Event('input')); // 重新搜索
+                });
+            });
+
+            // 搜索输入
+            $input.addEventListener('input', function() {
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $result.innerHTML = '';
+
+                if (this.value.trim().length <= 0) return;
+
+                var str = '<ul class="search-result-list">';
+                var count = 0;
+
+                allDatas.forEach(function(data) {
+                    // 类型筛选
+                    if (searchType !== 'all' && data.type !== searchType) return;
+
+                    if (!data.title || !data.content) return;
+
+                    var title = data.title.trim().toLowerCase();
+                    var content = data.content.trim().toLowerCase();
+                    var isMatch = true;
+                    var firstOccur = -1;
+
+                    keywords.forEach(function(kw, i) {
+                        var ti = title.indexOf(kw);
+                        var ci = content.indexOf(kw);
+                        if (ti < 0 && ci < 0) {
+                            isMatch = false;
+                        } else {
+                            if (ci < 0) ci = 0;
+                            if (i === 0) firstOccur = ci;
+                        }
+                    });
+
+                    if (!isMatch) return;
+                    count++;
+
+                    var typeBadge = '';
+                    if (data.type === 'product') typeBadge = '<span class="search-badge badge-product">产品</span>';
+                    else if (data.type === 'kb') typeBadge = '<span class="search-badge badge-kb">知识库</span>';
+                    else typeBadge = '<span class="search-badge badge-post">教程</span>';
+
+                    str += '<li><a href="' + data.url + '" class="search-result-title">' + typeBadge + data.title + '</a>';
+
+                    if (firstOccur >= 0) {
+                        var start = Math.max(0, firstOccur - 20);
+                        var end = Math.min(content.length, firstOccur + 80);
+                        if (start === 0) end = Math.min(content.length, 100);
+                        var snippet = content.substring(start, end);
+                        keywords.forEach(function(kw) {
+                            var reg = new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                            snippet = snippet.replace(reg, '<em class="search-keyword">' + kw + '</em>');
+                        });
+                        str += '<p class="search-result">' + snippet + '...</p>';
+                    }
+                    str += '</li>';
+                });
+
+                if (count === 0) {
+                    str += '<li class="center-align" style="padding:2rem;color:#999;"><i class="far fa-frown fa-2x"></i><p style="margin-top:0.5rem;">没有找到相关内容，换个关键词试试</p></li>';
+                }
+
+                str += '</ul>';
+                $result.innerHTML = str;
+            });
+        }
+    });
+})();
 </script>
 
     <!-- 回到顶部按钮 -->

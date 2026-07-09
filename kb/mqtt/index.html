@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 博客, 京墨科技">
+    <meta name="keywords" content="MQTT 协议入门与实践, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 博客 | 京墨科技</title>
+    <title>MQTT 协议入门与实践 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -354,91 +354,143 @@
 </div>
 
 <main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;教程标签
-            </div>
-            <div class="tag-chips">
+    <article class="container kb-article">
+        <!-- 文章头部 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <h1 class="kb-title">MQTT 协议入门与实践</h1>
+                <div class="kb-meta">
+                    <span><i class="far fa-calendar-alt"></i> 2026-07-08</span>
+                    
+                </div>
                 
-                
-                <a href="/tags/%E5%BB%BA%E7%AB%99/" title="建站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="建站" style="background-color: #F9EBEA;">建站
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="博客" style="background-color: #F5EEF8;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="经验" style="background-color: #D5F5E3;">经验
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="kb-tags">
+                    
+                    <span class="chip bg-color">MQTT</span>
+                    
+                    <span class="chip bg-color">IoT</span>
+                    
+                    <span class="chip bg-color">物联网协议</span>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
 
-    
+        <!-- 文章正文 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <div class="markdown-body">
+                    <h2 id="什么是-MQTT"><a href="#什么是-MQTT" class="headerlink" title="什么是 MQTT"></a>什么是 MQTT</h2><p>MQTT（Message Queuing Telemetry Transport）是一种基于<strong>发布&#x2F;订阅</strong>模式的轻量级物联网通信协议，由 IBM 于 1999 年发布。它设计用于低带宽、高延迟、不可靠网络环境下的设备间通信，是物联网领域最流行的协议之一。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ul>
+<li><strong>Broker（代理服务器）</strong>：消息中枢，负责接收和转发所有消息</li>
+<li><strong>Topic（主题）</strong>：消息的分类标签，如 <code>/home/sensor/temperature</code></li>
+<li><strong>Publisher（发布者）</strong>：发送消息到指定 Topic 的设备</li>
+<li><strong>Subscriber（订阅者）</strong>：接收指定 Topic 消息的设备</li>
+</ul>
+<h2 id="QoS-服务质量"><a href="#QoS-服务质量" class="headerlink" title="QoS 服务质量"></a>QoS 服务质量</h2><p>MQTT 提供三级服务质量，根据场景选择：</p>
+<table>
+<thead>
+<tr>
+<th>QoS</th>
+<th>名称</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>最多一次</td>
+<td>消息只发一次，不确认，可能丢失</td>
+<td>传感器高频上报</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>至少一次</td>
+<td>确保到达，但可能重复</td>
+<td>一般遥测数据</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>恰好一次</td>
+<td>保证到达且不重复（开销大）</td>
+<td>关键控制指令</td>
+</tr>
+</tbody></table>
+<h2 id="常用-Broker-对比"><a href="#常用-Broker-对比" class="headerlink" title="常用 Broker 对比"></a>常用 Broker 对比</h2><table>
+<thead>
+<tr>
+<th>Broker</th>
+<th>特点</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Mosquitto</strong></td>
+<td>C 实现，轻量，单机首选</td>
+<td>嵌入式&#x2F;小规模</td>
+</tr>
+<tr>
+<td><strong>EMQX</strong></td>
+<td>Erlang 实现，高并发，万级连接</td>
+<td>企业级&#x2F;IoT 平台</td>
+</tr>
+<tr>
+<td><strong>NanoMQ</strong></td>
+<td>C 实现，超轻量，边缘端</td>
+<td>边缘计算</td>
+</tr>
+<tr>
+<td><strong>HiveMQ</strong></td>
+<td>Java 实现，商业支持好</td>
+<td>工业&#x2F;汽车</td>
+</tr>
+</tbody></table>
+<h3 id="Mosquitto-快速部署"><a href="#Mosquitto-快速部署" class="headerlink" title="Mosquitto 快速部署"></a>Mosquitto 快速部署</h3><pre><code class="bash"># Ubuntu/Debian 安装
+sudo apt install mosquitto mosquitto-clients
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="建站, 博客, 经验" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2026/07/09/dajiangerenboke/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
-                            
-                            <span class="card-title">搭建个人博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BB%BA%E7%AB%99/" class="post-category">
-                                建站
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+# 启动 Broker
+sudo systemctl start mosquitto
+
+# 订阅测试
+mosquitto_sub -t &quot;test/topic&quot; -v
+
+# 发布测试
+mosquitto_pub -t &quot;test/topic&quot; -m &quot;Hello MQTT&quot;
+</code></pre>
+<h2 id="通配符规则"><a href="#通配符规则" class="headerlink" title="通配符规则"></a>通配符规则</h2><ul>
+<li><strong>单层</strong> <code>+</code>：匹配一层，如 <code>sensor/+/temp</code> 匹配 <code>sensor/1/temp</code></li>
+<li><strong>多层</strong> <code>#</code>：匹配所有子层，如 <code>sensor/#</code> 匹配 <code>sensor/1/temp</code>、<code>sensor/2/humi</code></li>
+</ul>
+<blockquote>
+<p><strong>提示</strong>：<code>#</code> 只能放在结尾，<code>+</code> 可用于中间层。</p>
+</blockquote>
+
                 </div>
             </div>
-            
         </div>
     </article>
 </main>
 
+<style>
+    .kb-article { margin-top: 2rem; margin-bottom: 3rem; }
+    .kb-article .card { border-radius: 10px; margin: 0 0 1.2rem !important; }
+    .kb-title { font-size: 1.7rem; font-weight: 700; color: #333; margin: 0 0 0.6rem; }
+    .kb-meta { font-size: 0.88rem; color: #999; margin-bottom: 0.8rem; display: flex; flex-wrap: wrap; gap: 16px; }
+    .kb-meta i { margin-right: 4px; color: #bbb; }
+    .kb-tags { margin-top: 0.5rem; }
+    .markdown-body { color: #555; line-height: 1.9; font-size: 0.95rem; }
+    .markdown-body h2 { color: #333; margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    .markdown-body h3 { color: #444; margin-top: 1.2rem; }
+    .markdown-body table { font-size: 0.9rem; }
+    .markdown-body img { max-width: 100%; border-radius: 6px; }
+    .markdown-body pre { border-radius: 8px; }
+    .markdown-body blockquote { border-left-color: #0f9d58; }
 
+    @media only screen and (max-width: 600px) {
+        .kb-title { font-size: 1.35rem; }
+    }
+</style>
 
     </div>
 

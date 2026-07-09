@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 博客, 京墨科技">
+    <meta name="keywords" content="RS485 通信基础, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 博客 | 京墨科技</title>
+    <title>RS485 通信基础 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -354,91 +354,131 @@
 </div>
 
 <main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;教程标签
-            </div>
-            <div class="tag-chips">
+    <article class="container kb-article">
+        <!-- 文章头部 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <h1 class="kb-title">RS485 通信基础</h1>
+                <div class="kb-meta">
+                    <span><i class="far fa-calendar-alt"></i> 2026-07-06</span>
+                    
+                </div>
                 
-                
-                <a href="/tags/%E5%BB%BA%E7%AB%99/" title="建站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="建站" style="background-color: #F9EBEA;">建站
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="博客" style="background-color: #F5EEF8;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="经验" style="background-color: #D5F5E3;">经验
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="kb-tags">
+                    
+                    <span class="chip bg-color">RS485</span>
+                    
+                    <span class="chip bg-color">串口通信</span>
+                    
+                    <span class="chip bg-color">工业总线</span>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
 
-    
+        <!-- 文章正文 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <div class="markdown-body">
+                    <h2 id="什么是-RS485"><a href="#什么是-RS485" class="headerlink" title="什么是 RS485"></a>什么是 RS485</h2><p>RS485（EIA-485）是一种<strong>差分信号</strong>串行通信标准，广泛用于工业自动化、楼宇控制等领域。相比 RS232，RS485 具有<strong>抗干扰强、传输距离远、支持多节点</strong>的优势。</p>
+<h3 id="RS232-vs-RS485"><a href="#RS232-vs-RS485" class="headerlink" title="RS232 vs RS485"></a>RS232 vs RS485</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>RS232</th>
+<th>RS485</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>信号方式</strong></td>
+<td>单端（非平衡）</td>
+<td>差分（平衡）</td>
+</tr>
+<tr>
+<td><strong>最大距离</strong></td>
+<td>15m</td>
+<td>1200m</td>
+</tr>
+<tr>
+<td><strong>最大速率</strong></td>
+<td>115.2kbps</td>
+<td>10Mbps（短距离）</td>
+</tr>
+<tr>
+<td><strong>节点数量</strong></td>
+<td>1 对 1</td>
+<td>最多 256 个（1 主 255 从）</td>
+</tr>
+<tr>
+<td><strong>抗干扰</strong></td>
+<td>差</td>
+<td>强</td>
+</tr>
+</tbody></table>
+<h2 id="接线规范"><a href="#接线规范" class="headerlink" title="接线规范"></a>接线规范</h2><p>RS485 使用双绞线传输差分信号：</p>
+<ul>
+<li>**A+ &#x2F; B-**：差分信号线，必须双绞</li>
+<li><strong>终端电阻</strong>：总线两端各接 <strong>120Ω</strong>，阻抗匹配防信号反射</li>
+<li><strong>偏置电阻</strong>：A 上拉 ~680Ω，B 下拉 ~680Ω，确保空闲时电平确定</li>
+<li><strong>共地</strong>：所有节点 GND 必须连接</li>
+<li><strong>拓扑</strong>：必须手拉手串联，严禁星形分支</li>
+</ul>
+<h2 id="常见故障排查"><a href="#常见故障排查" class="headerlink" title="常见故障排查"></a>常见故障排查</h2><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>可能原因</th>
+<th>解决方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全部从站无响应</td>
+<td>A&#x2F;B 线反接</td>
+<td>交换 A+ &#x2F; B-</td>
+</tr>
+<tr>
+<td>部分从站无响应</td>
+<td>终端电阻缺失</td>
+<td>最远端加 120Ω</td>
+</tr>
+<tr>
+<td>间歇性通信失败</td>
+<td>星形拓扑 &#x2F; 线路过长</td>
+<td>改串联 &#x2F; 降波特率</td>
+</tr>
+<tr>
+<td>特定从站异常</td>
+<td>地址冲突</td>
+<td>检查从站地址设置</td>
+</tr>
+</tbody></table>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="建站, 博客, 经验" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2026/07/09/dajiangerenboke/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
-                            
-                            <span class="card-title">搭建个人博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BB%BA%E7%AB%99/" class="post-category">
-                                建站
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
         </div>
     </article>
 </main>
 
+<style>
+    .kb-article { margin-top: 2rem; margin-bottom: 3rem; }
+    .kb-article .card { border-radius: 10px; margin: 0 0 1.2rem !important; }
+    .kb-title { font-size: 1.7rem; font-weight: 700; color: #333; margin: 0 0 0.6rem; }
+    .kb-meta { font-size: 0.88rem; color: #999; margin-bottom: 0.8rem; display: flex; flex-wrap: wrap; gap: 16px; }
+    .kb-meta i { margin-right: 4px; color: #bbb; }
+    .kb-tags { margin-top: 0.5rem; }
+    .markdown-body { color: #555; line-height: 1.9; font-size: 0.95rem; }
+    .markdown-body h2 { color: #333; margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    .markdown-body h3 { color: #444; margin-top: 1.2rem; }
+    .markdown-body table { font-size: 0.9rem; }
+    .markdown-body img { max-width: 100%; border-radius: 6px; }
+    .markdown-body pre { border-radius: 8px; }
+    .markdown-body blockquote { border-left-color: #0f9d58; }
 
+    @media only screen and (max-width: 600px) {
+        .kb-title { font-size: 1.35rem; }
+    }
+</style>
 
     </div>
 

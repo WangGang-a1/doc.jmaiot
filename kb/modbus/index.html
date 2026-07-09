@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 博客, 京墨科技">
+    <meta name="keywords" content="Modbus 通信协议详解, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 博客 | 京墨科技</title>
+    <title>Modbus 通信协议详解 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -354,91 +354,144 @@
 </div>
 
 <main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;教程标签
-            </div>
-            <div class="tag-chips">
+    <article class="container kb-article">
+        <!-- 文章头部 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <h1 class="kb-title">Modbus 通信协议详解</h1>
+                <div class="kb-meta">
+                    <span><i class="far fa-calendar-alt"></i> 2026-07-07</span>
+                    
+                </div>
                 
-                
-                <a href="/tags/%E5%BB%BA%E7%AB%99/" title="建站: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="建站" style="background-color: #F9EBEA;">建站
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="博客" style="background-color: #F5EEF8;">博客
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="经验" style="background-color: #D5F5E3;">经验
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="kb-tags">
+                    
+                    <span class="chip bg-color">Modbus</span>
+                    
+                    <span class="chip bg-color">RS485</span>
+                    
+                    <span class="chip bg-color">工业协议</span>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
 
-    
+        <!-- 文章正文 -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <div class="markdown-body">
+                    <h2 id="协议概述"><a href="#协议概述" class="headerlink" title="协议概述"></a>协议概述</h2><p>Modbus 是一种应用层报文传输协议，由 Modicon（现施耐德电气）于 1979 年发布，是目前工业电子设备之间最常用的串行通信协议之一。它采用<strong>主&#x2F;从（Master&#x2F;Slave）架构</strong>，一个主站可以与多达 247 个从站通信。</p>
+<h3 id="三种传输模式"><a href="#三种传输模式" class="headerlink" title="三种传输模式"></a>三种传输模式</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>物理层</th>
+<th>帧格式</th>
+<th>典型应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Modbus RTU</strong></td>
+<td>RS-232 &#x2F; RS-485</td>
+<td>二进制，8 位数据</td>
+<td>工业现场最常用</td>
+</tr>
+<tr>
+<td><strong>Modbus ASCII</strong></td>
+<td>RS-232 &#x2F; RS-485</td>
+<td>ASCII 可读字符</td>
+<td>调试&#x2F;兼容旧设备</td>
+</tr>
+<tr>
+<td><strong>Modbus TCP</strong></td>
+<td>以太网</td>
+<td>TCP&#x2F;IP 封装</td>
+<td>现代工业以太网</td>
+</tr>
+</tbody></table>
+<h2 id="寄存器模型"><a href="#寄存器模型" class="headerlink" title="寄存器模型"></a>寄存器模型</h2><p>Modbus 定义了四种数据区域，每种有独立的地址空间：</p>
+<table>
+<thead>
+<tr>
+<th>寄存器类型</th>
+<th>访问方式</th>
+<th>地址范围</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>线圈（Coil）</strong></td>
+<td>读写</td>
+<td>00001-09999</td>
+<td>开关量输出</td>
+</tr>
+<tr>
+<td><strong>离散输入（Discrete Input）</strong></td>
+<td>只读</td>
+<td>10001-19999</td>
+<td>开关量输入</td>
+</tr>
+<tr>
+<td><strong>保持寄存器（Holding Register）</strong></td>
+<td>读写</td>
+<td>40001-49999</td>
+<td>模拟量&#x2F;参数</td>
+</tr>
+<tr>
+<td><strong>输入寄存器（Input Register）</strong></td>
+<td>只读</td>
+<td>30001-39999</td>
+<td>模拟量输入</td>
+</tr>
+</tbody></table>
+<h2 id="常用功能码"><a href="#常用功能码" class="headerlink" title="常用功能码"></a>常用功能码</h2><ul>
+<li><strong>01 (0x01)</strong> — 读线圈</li>
+<li><strong>02 (0x02)</strong> — 读离散输入</li>
+<li><strong>03 (0x03)</strong> — 读保持寄存器（最常用）</li>
+<li><strong>04 (0x04)</strong> — 读输入寄存器</li>
+<li><strong>05 (0x05)</strong> — 写单线圈</li>
+<li><strong>06 (0x06)</strong> — 写单寄存器</li>
+<li><strong>15 (0x0F)</strong> — 写多线圈</li>
+<li><strong>16 (0x10)</strong> — 写多寄存器</li>
+</ul>
+<h2 id="调试工具推荐"><a href="#调试工具推荐" class="headerlink" title="调试工具推荐"></a>调试工具推荐</h2><ul>
+<li><strong>Modbus Poll</strong> — Windows 平台经典调试工具，支持 RTU&#x2F;TCP</li>
+<li><strong>Modscan</strong> — 老牌 Modbus 调试软件</li>
+<li><strong>QModMaster</strong> — 开源跨平台 Modbus 工具</li>
+<li><strong>Modbus Mechanic</strong> — macOS 平台</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>RS-485 总线两端必须接 <strong>120Ω 终端电阻</strong></li>
+<li>RTU 模式下帧与帧之间至少需要 <strong>3.5 个字符时间</strong>的静默</li>
+<li>不同厂商的寄存器地址可能存在 <strong>偏移</strong>（0-based vs 1-based），对接前务必核对</li>
+</ol>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="建站, 博客, 经验" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2026/07/09/dajiangerenboke/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
-                            
-                            <span class="card-title">搭建个人博客</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%BB%BA%E7%AB%99/" class="post-category">
-                                建站
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
         </div>
     </article>
 </main>
 
+<style>
+    .kb-article { margin-top: 2rem; margin-bottom: 3rem; }
+    .kb-article .card { border-radius: 10px; margin: 0 0 1.2rem !important; }
+    .kb-title { font-size: 1.7rem; font-weight: 700; color: #333; margin: 0 0 0.6rem; }
+    .kb-meta { font-size: 0.88rem; color: #999; margin-bottom: 0.8rem; display: flex; flex-wrap: wrap; gap: 16px; }
+    .kb-meta i { margin-right: 4px; color: #bbb; }
+    .kb-tags { margin-top: 0.5rem; }
+    .markdown-body { color: #555; line-height: 1.9; font-size: 0.95rem; }
+    .markdown-body h2 { color: #333; margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    .markdown-body h3 { color: #444; margin-top: 1.2rem; }
+    .markdown-body table { font-size: 0.9rem; }
+    .markdown-body img { max-width: 100%; border-radius: 6px; }
+    .markdown-body pre { border-radius: 8px; }
+    .markdown-body blockquote { border-left-color: #0f9d58; }
 
+    @media only screen and (max-width: 600px) {
+        .kb-title { font-size: 1.35rem; }
+    }
+</style>
 
     </div>
 

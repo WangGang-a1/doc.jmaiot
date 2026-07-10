@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="knowledge, 京墨科技">
+    <meta name="keywords" content="知识库, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>knowledge | 京墨科技</title>
+    <title>知识库 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -328,7 +328,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['新一代物联网通信解决方案，让物联升级智联','JMAIOT让万物互联变得更简单'],
+                        strings: ['新一代物联网通信解决方案，让物联升级智联','JMAIOT让万物互联变得更简单','永远相信美好的事情即将发生！'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -356,83 +356,189 @@
 <style>
     .kb-page { margin-top: -80px; margin-bottom: 40px; }
 
-    /* 左右布局 */
-    .kb-layout { display: flex; gap: 20px; align-items: flex-start; }
-    .kb-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 80px; }
-    .kb-main { flex: 1; min-width: 0; }
+    /* 双栏布局 */
+    .kb-layout { display: flex; gap: 18px; align-items: flex-start; }
+    .kb-sidebar { width: 230px; flex-shrink: 0; position: sticky; top: 80px; }
+    .kb-content { flex: 1; min-width: 0; }
 
     /* 侧边栏树形菜单 */
-    .kb-sidebar .card { margin: 0 !important; border-radius: 10px; }
-    .kb-sidebar .card-content { padding: 1rem 0.8rem; }
-    .kb-sidebar .tag-title { font-size: 1rem; font-weight: 700; color: #444; padding: 0 0.8rem 0.8rem; border-bottom: 1px solid #f0f0f0; margin-bottom: 0.5rem; }
-    .kb-sidebar .tag-title i { color: #0f9d58; }
+    .kb-sidebar .card { margin: 0 !important; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .kb-sidebar .card-content { padding: 0.9rem 0.7rem; }
+    .kb-sidebar .sidebar-title { font-size: 0.95rem; font-weight: 700; color: #444; padding: 0 0.6rem 0.7rem; border-bottom: 1px solid #f0f0f0; margin-bottom: 0.4rem; }
+    .kb-sidebar .sidebar-title i { color: #0f9d58; }
 
-    .kb-tree {}
     .kb-tree-cat {
-        display: flex; align-items: center; gap: 8px;
-        padding: 9px 12px; border-radius: 8px;
-        font-size: 0.9rem; font-weight: 600; color: #555;
+        display: flex; align-items: center; gap: 6px;
+        padding: 8px 10px; border-radius: 7px;
+        font-size: 0.87rem; font-weight: 600; color: #555;
         cursor: pointer; user-select: none; transition: all 0.2s;
     }
     .kb-tree-cat:hover { color: #0f9d58; background: #f6fdf8; }
     .kb-tree-cat.expanded { color: #0f9d58; }
-    .kb-tree-cat i.tree-arrow { font-size: 0.7rem; transition: transform 0.2s; color: #bbb; width: 12px; text-align: center; }
+    .kb-tree-cat i.tree-arrow { font-size: 0.65rem; transition: transform 0.2s; color: #bbb; width: 12px; text-align: center; }
     .kb-tree-cat.expanded i.tree-arrow { transform: rotate(90deg); color: #0f9d58; }
-    .kb-tree-cat .tree-count { margin-left: auto; font-size: 0.75rem; color: #bbb; background: #f5f5f5; padding: 2px 8px; border-radius: 10px; }
+    .kb-tree-cat .tree-count { margin-left: auto; font-size: 0.72rem; color: #bbb; background: #f5f5f5; padding: 2px 7px; border-radius: 10px; min-width: 20px; text-align: center; }
     .kb-tree-cat.expanded .tree-count { color: #0f9d58; background: #e8f5e9; }
 
     .kb-tree-docs { display: none; }
     .kb-tree-docs.open { display: block; }
     .kb-tree-doc {
-        display: flex; align-items: center; gap: 8px;
-        padding: 7px 12px 7px 32px; border-radius: 6px;
-        font-size: 0.85rem; color: #777; cursor: pointer;
+        display: flex; align-items: center; gap: 7px;
+        padding: 6px 10px 6px 30px; border-radius: 5px;
+        font-size: 0.83rem; color: #777; cursor: pointer;
         transition: all 0.15s;
     }
     .kb-tree-doc:hover { color: #0f9d58; background: #f9fdf9; }
     .kb-tree-doc.active { color: #0f9d58; font-weight: 600; background: #e8f5e9; }
-    .kb-tree-doc i { font-size: 0.7rem; color: #ddd; width: 14px; text-align: center; flex-shrink: 0; }
+    .kb-tree-doc i { font-size: 0.65rem; color: #ddd; width: 12px; text-align: center; flex-shrink: 0; }
     .kb-tree-doc.active i { color: #0f9d58; }
-    .kb-tree-doc-placeholder { opacity: 0.45; cursor: default; }
-    .kb-tree-doc-placeholder:hover { color: #777; background: transparent; }
 
-    /* 右侧主内容 */
-    .kb-main .card { margin-top: 0 !important; border-radius: 10px; }
-    .kb-section { margin-bottom: 1.5rem; }
+    /* 中间内容区 */
+    .kb-content .card { margin-top: 0 !important; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+
+    /* 列表视图 */
+    .kb-listing .listing-header { font-size: 1.15rem; font-weight: 700; color: #333; text-align: center; padding-bottom: 0.6rem; border-bottom: 2px solid #f0f0f0; margin-bottom: 0.5rem; }
+    .kb-listing .listing-header i { color: #0f9d58; }
+    .kb-section { margin-bottom: 1.2rem; }
     .kb-section:last-child { margin-bottom: 0; }
     .kb-section-title {
-        font-size: 1.05rem; font-weight: 700; color: #444;
-        padding-bottom: 0.5rem; margin-bottom: 0.8rem;
+        font-size: 1rem; font-weight: 700; color: #444;
+        padding-bottom: 0.4rem; margin-bottom: 0.6rem;
         border-bottom: 2px solid #f0f0f0;
-        display: flex; align-items: center; gap: 8px;
+        display: flex; align-items: center; gap: 7px;
     }
     .kb-section-title i { color: #0f9d58; }
 
     .kb-doc-item {
-        display: flex; align-items: flex-start; gap: 12px;
-        padding: 12px 14px; border-radius: 10px;
-        transition: background 0.2s; margin-bottom: 2px;
+        display: flex; align-items: flex-start; gap: 10px;
+        padding: 10px 12px; border-radius: 8px;
+        transition: background 0.2s; margin-bottom: 1px;
     }
     .kb-doc-item:hover { background: #fafafa; }
     .kb-doc-icon {
-        width: 34px; height: 34px; border-radius: 8px;
+        width: 32px; height: 32px; border-radius: 7px;
         background: #e8f5e9; color: #0f9d58;
         display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0; font-size: 0.85rem;
+        flex-shrink: 0; font-size: 0.8rem;
     }
     .kb-doc-info { flex: 1; min-width: 0; }
-    .kb-doc-name { font-size: 0.93rem; font-weight: 600; margin-bottom: 2px; }
-    .kb-doc-name a { color: #333; }
+    .kb-doc-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 1px; }
+    .kb-doc-name a { color: #333; cursor: pointer; }
     .kb-doc-name a:hover { color: #0f9d58; }
-    .kb-doc-desc { font-size: 0.83rem; color: #999; line-height: 1.5;
+    .kb-doc-desc { font-size: 0.8rem; color: #999; line-height: 1.4;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .kb-doc-date { font-size: 0.76rem; color: #ccc; white-space: nowrap; padding-top: 2px; }
-    .kb-doc-placeholder { opacity: 0.45; }
+    .kb-doc-date { font-size: 0.74rem; color: #ccc; white-space: nowrap; padding-top: 1px; }
 
-    @media only screen and (max-width: 768px) {
+    /* ===== 文章阅读视图 ===== */
+    .kb-article-view { display: none; }
+    .kb-article-view .article-back { display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: #0f9d58; cursor: pointer; margin-bottom: 0.6rem; transition: opacity 0.2s; }
+    .kb-article-view .article-back:hover { opacity: 0.7; }
+    .kb-article-view .article-back i { font-size: 0.75rem; }
+    .kb-article-view .kb-article-title { font-size: 1.35rem; font-weight: 700; color: #333; margin: 0 0 0.35rem; line-height: 1.4; }
+    .kb-article-view .kb-article-meta { font-size: 0.84rem; color: #aaa; margin-bottom: 0.5rem; display: flex; flex-wrap: wrap; gap: 14px; }
+    .kb-article-view .kb-article-meta i { margin-right: 3px; color: #ccc; }
+    .kb-article-view .kb-article-tags { margin-bottom: 0; }
+
+    /* 文章正文 + 大纲 flex 布局 */
+    .kb-article-body {
+        display: flex; gap: 28px; align-items: flex-start;
+        margin-top: 1rem;
+    }
+    .kb-article-body .article-main { flex: 1; min-width: 0; }
+    .kb-article-body .article-main .markdown-body { color: #555; line-height: 1.9; font-size: 0.94rem; }
+    .kb-article-body .article-main .markdown-body h2 { color: #333; margin-top: 1.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid #eee; }
+    .kb-article-body .article-main .markdown-body h3 { color: #444; margin-top: 1.2rem; }
+    .kb-article-body .article-main .markdown-body table { font-size: 0.88rem; }
+    .kb-article-body .article-main .markdown-body img { max-width: 100%; border-radius: 6px; }
+    .kb-article-body .article-main .markdown-body pre { border-radius: 8px; }
+    .kb-article-body .article-main .markdown-body blockquote { border-left-color: #0f9d58; }
+
+    /* ===== 右侧大纲 (卡片内) ===== */
+    .article-toc {
+        width: 210px; flex-shrink: 0;
+        position: sticky; top: 100px;
+        max-height: calc(100vh - 140px);
+        border: 1px solid #e8ece8; border-radius: 10px;
+        background: #fbfdfb;
+        transition: all 0.3s ease;
+        display: flex; flex-direction: column;
+        overflow: hidden;
+    }
+    .article-toc.collapsed {
+        width: 36px;
+        min-width: 36px;
+    }
+    .article-toc .toc-inner-header {
+        display: flex; align-items: center; gap: 7px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #eef2ee;
+        flex-shrink: 0;
+    }
+    .article-toc.collapsed .toc-inner-header {
+        flex-direction: column; gap: 4px;
+        padding: 10px 6px;
+    }
+    .article-toc .toc-label {
+        flex: 1; font-size: 0.85rem; font-weight: 700; color: #555;
+        display: flex; align-items: center; gap: 6px;
+    }
+    .article-toc.collapsed .toc-label { flex: unset; writing-mode: vertical-rl; font-size: 0.8rem; gap: 0; }
+    .article-toc.collapsed .toc-label i { margin-bottom: 4px; }
+    .article-toc .toc-label i { color: #0f9d58; font-size: 0.8rem; }
+    .article-toc .toc-count { font-size: 0.72rem; color: #aaa; background: #eee; padding: 1px 7px; border-radius: 10px; }
+    .article-toc.collapsed .toc-count { display: none; }
+    .article-toc .toc-collapse-btn {
+        width: 26px; height: 26px; border-radius: 50%;
+        border: 1px solid #ddd; background: #fff;
+        color: #999; cursor: pointer; font-size: 0.7rem;
+        display: flex; align-items: center; justify-content: center;
+        transition: all 0.2s; flex-shrink: 0;
+    }
+    .article-toc .toc-collapse-btn:hover { border-color: #0f9d58; color: #0f9d58; background: #f6fdf8; }
+    .article-toc.collapsed .toc-collapse-btn { transform: rotate(180deg); }
+
+    .article-toc .toc-scroll {
+        flex: 1; overflow-y: auto; padding: 8px 10px;
+    }
+    .article-toc.collapsed .toc-scroll { display: none; }
+    .article-toc .toc-scroll::-webkit-scrollbar { width: 3px; }
+    .article-toc .toc-scroll::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+
+    .article-toc .toc-list { list-style: none; margin: 0; padding: 0; }
+    .article-toc .toc-list li { margin: 0; }
+    .article-toc .toc-list li a {
+        display: block; padding: 5px 8px; border-radius: 5px;
+        font-size: 0.8rem; color: #777; text-decoration: none;
+        transition: all 0.15s; border-left: 2px solid transparent;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .article-toc .toc-list li a:hover { color: #0f9d58; background: #f2f8f2; }
+    .article-toc .toc-list li a.toc-active {
+        color: #0f9d58; font-weight: 600; background: #e8f5e9; border-left-color: #0f9d58;
+    }
+    .article-toc .toc-list li.toc-h3 a { padding-left: 22px; font-size: 0.77rem; }
+    .article-toc .toc-list li.toc-h2 a { font-weight: 500; }
+
+    /* 空状态 */
+    .article-toc .toc-empty {
+        font-size: 0.78rem; color: #ccc; text-align: center; padding: 1rem 0;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .kb-article-body { flex-direction: column; }
+        .article-toc {
+            width: 100% !important; position: static; max-height: none;
+            flex-direction: column !important;
+        }
+        .article-toc.collapsed { width: 100% !important; min-width: unset; }
+        .article-toc.collapsed .toc-inner-header { flex-direction: row !important; }
+        .article-toc.collapsed .toc-label { flex: 1; writing-mode: horizontal-tb; font-size: 0.85rem; }
+        .article-toc.collapsed .toc-scroll { display: none; }
+        .article-toc.collapsed .toc-count { display: inline; }
+    }
+    @media only screen and (max-width: 900px) {
         .kb-layout { flex-direction: column; }
         .kb-sidebar { width: 100%; position: static; }
-        .kb-tree-doc { padding-left: 24px; }
     }
 </style>
 
@@ -445,30 +551,30 @@
             <div class="kb-sidebar" data-aos="fade-right">
                 <div class="card">
                     <div class="card-content">
-                        <div class="tag-title"><i class="fas fa-archive"></i>&nbsp;知识库</div>
+                        <div class="sidebar-title"><i class="fas fa-archive"></i>&nbsp;知识库</div>
                         <div class="kb-tree">
                             
                             <div class="kb-tree-cat expanded" data-index="0">
                                 <i class="fas fa-chevron-right tree-arrow"></i>
-                                <i class="fas fa-code" style="font-size:0.8rem;color:#0f9d58;"></i>
+                                <i class="fas fa-code" style="font-size:0.78rem;color:#0f9d58;"></i>
                                 技术文档
                                 <span class="tree-count">4</span>
                             </div>
                             <div class="kb-tree-docs open">
                                 
-                                <div class="kb-tree-doc" data-cat="0" data-doc="0" data-url="/kb/modbus">
-                                    <i class="fas fa-file-alt"></i> Modbus 通信协议详解
-                                </div>
-                                
-                                <div class="kb-tree-doc" data-cat="0" data-doc="1" data-url="/kb/mqtt">
+                                <div class="kb-tree-doc" data-cat="0" data-doc="0" data-url="/kb/mqtt/index.html" data-name="MQTT 协议入门与实践">
                                     <i class="fas fa-file-alt"></i> MQTT 协议入门与实践
                                 </div>
                                 
-                                <div class="kb-tree-doc" data-cat="0" data-doc="2" data-url="/kb/rs485">
+                                <div class="kb-tree-doc" data-cat="0" data-doc="1" data-url="/kb/modbus/index.html" data-name="Modbus 通信协议详解">
+                                    <i class="fas fa-file-alt"></i> Modbus 通信协议详解
+                                </div>
+                                
+                                <div class="kb-tree-doc" data-cat="0" data-doc="2" data-url="/kb/rs485/index.html" data-name="RS485 通信基础">
                                     <i class="fas fa-file-alt"></i> RS485 通信基础
                                 </div>
                                 
-                                <div class="kb-tree-doc" data-cat="0" data-doc="3" data-url="/kb/dtu-compare">
+                                <div class="kb-tree-doc" data-cat="0" data-doc="3" data-url="/kb/dtu-compare/index.html" data-name="DTU 选型对比指南">
                                     <i class="fas fa-file-alt"></i> DTU 选型对比指南
                                 </div>
                                 
@@ -479,81 +585,97 @@
                 </div>
             </div>
 
-            <!-- ===== 右侧文档列表 ===== -->
-            <div class="kb-main" data-aos="fade-left">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="tag-title center-align" style="font-size:1.3rem;font-weight:600;color:#333;margin-bottom:1rem;">
-                            <i class="fas fa-archive"></i>&nbsp;&nbsp;知识库
-                        </div>
-                        
-                        <div class="kb-section" id="kb-cat-0">
-                            <div class="kb-section-title">
-                                <i class="fas fa-code"></i> 技术文档
+            <!-- ===== 右侧内容区 ===== -->
+            <div class="kb-content" id="kbContent" data-aos="fade-up">
+                <!-- 列表视图 -->
+                <div class="kb-listing" id="kbListing">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="listing-header">
+                                <i class="fas fa-archive"></i>&nbsp;&nbsp;知识库
                             </div>
                             
-                            <div class="kb-doc-item">
-                                <div class="kb-doc-icon">
-                                    <i class="fas fa-file-alt"></i>
+                            <div class="kb-section" id="kb-cat-0">
+                                <div class="kb-section-title">
+                                    <i class="fas fa-code"></i> 技术文档
                                 </div>
-                                <div class="kb-doc-info">
-                                    <div class="kb-doc-name">
-                                        
-                                        <a href="/kb/modbus" >Modbus 通信协议详解</a>
-                                        
+                                
+                                <div class="kb-doc-item" data-url="/kb/mqtt/index.html" style="cursor:pointer;">
+                                    <div class="kb-doc-icon"><i class="fas fa-file-alt"></i></div>
+                                    <div class="kb-doc-info">
+                                        <div class="kb-doc-name">
+                                            <a class="kb-doc-link" data-url="/kb/mqtt/index.html" data-name="MQTT 协议入门与实践">MQTT 协议入门与实践</a>
+                                        </div>
+                                        <div class="kb-doc-desc">MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。</div>
                                     </div>
-                                    <div class="kb-doc-desc">Modbus RTU/ASCII/TCP 三种模式对比，寄存器映射、功能码说明与调试工具推荐</div>
+                                    <div class="kb-doc-date">2026-07-08</div>
                                 </div>
-                                <div class="kb-doc-date">2026-07-07</div>
-                            </div>
-                            
-                            <div class="kb-doc-item">
-                                <div class="kb-doc-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="kb-doc-info">
-                                    <div class="kb-doc-name">
-                                        
-                                        <a href="/kb/mqtt" >MQTT 协议入门与实践</a>
-                                        
+                                
+                                <div class="kb-doc-item" data-url="/kb/modbus/index.html" style="cursor:pointer;">
+                                    <div class="kb-doc-icon"><i class="fas fa-file-alt"></i></div>
+                                    <div class="kb-doc-info">
+                                        <div class="kb-doc-name">
+                                            <a class="kb-doc-link" data-url="/kb/modbus/index.html" data-name="Modbus 通信协议详解">Modbus 通信协议详解</a>
+                                        </div>
+                                        <div class="kb-doc-desc">Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。</div>
                                     </div>
-                                    <div class="kb-doc-desc">发布/订阅模式、QoS 等级选择、Mosquitto 等 Broker 部署与客户端开发示例</div>
+                                    <div class="kb-doc-date">2026-07-07</div>
                                 </div>
-                                <div class="kb-doc-date">2026-07-08</div>
-                            </div>
-                            
-                            <div class="kb-doc-item">
-                                <div class="kb-doc-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="kb-doc-info">
-                                    <div class="kb-doc-name">
-                                        
-                                        <a href="/kb/rs485" >RS485 通信基础</a>
-                                        
+                                
+                                <div class="kb-doc-item" data-url="/kb/rs485/index.html" style="cursor:pointer;">
+                                    <div class="kb-doc-icon"><i class="fas fa-file-alt"></i></div>
+                                    <div class="kb-doc-info">
+                                        <div class="kb-doc-name">
+                                            <a class="kb-doc-link" data-url="/kb/rs485/index.html" data-name="RS485 通信基础">RS485 通信基础</a>
+                                        </div>
+                                        <div class="kb-doc-desc">RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。</div>
                                     </div>
-                                    <div class="kb-doc-desc">差分信号原理、接线规范、终端电阻计算、偏置电阻配置与常见故障排查</div>
+                                    <div class="kb-doc-date">2026-07-06</div>
                                 </div>
-                                <div class="kb-doc-date">2026-07-06</div>
-                            </div>
-                            
-                            <div class="kb-doc-item">
-                                <div class="kb-doc-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="kb-doc-info">
-                                    <div class="kb-doc-name">
-                                        
-                                        <a href="/kb/dtu-compare" >DTU 选型对比指南</a>
-                                        
+                                
+                                <div class="kb-doc-item" data-url="/kb/dtu-compare/index.html" style="cursor:pointer;">
+                                    <div class="kb-doc-icon"><i class="fas fa-file-alt"></i></div>
+                                    <div class="kb-doc-info">
+                                        <div class="kb-doc-name">
+                                            <a class="kb-doc-link" data-url="/kb/dtu-compare/index.html" data-name="DTU 选型对比指南">DTU 选型对比指南</a>
+                                        </div>
+                                        <div class="kb-doc-desc">WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。</div>
                                     </div>
-                                    <div class="kb-doc-desc">WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议</div>
+                                    <div class="kb-doc-date">2026-07-05</div>
                                 </div>
-                                <div class="kb-doc-date">2026-07-05</div>
+                                
                             </div>
                             
                         </div>
-                        
+                    </div>
+                </div>
+
+                <!-- 文章阅读视图 — 大纲在右侧同一卡片内 -->
+                <div class="kb-article-view" id="kbArticleView">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="article-back" id="kbBackBtn"><i class="fas fa-arrow-left"></i> 返回列表</span>
+                            <h1 class="kb-article-title" id="kbArticleTitle"></h1>
+                            <div class="kb-article-meta" id="kbArticleMeta"></div>
+                            <div class="kb-article-tags" id="kbArticleTags"></div>
+
+                            <div class="kb-article-body">
+                                <div class="article-main">
+                                    <div class="markdown-body" id="kbArticleContent"></div>
+                                </div>
+                                <aside class="article-toc" id="articleToc">
+                                    <div class="toc-inner-header">
+                                        <span class="toc-label"><i class="fas fa-list"></i> 大纲</span>
+                                        <span class="toc-count" id="kbTocCount">0</span>
+                                        <button class="toc-collapse-btn" id="tocCollapseBtn" title="收起/展开大纲"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="toc-scroll">
+                                        <ul class="toc-list" id="kbTocList"></ul>
+                                        <div class="toc-empty" id="tocEmpty" style="display:none;">暂无标题</div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -564,7 +686,27 @@
 
 <script>
 (function() {
-    // 侧边栏树形展开/收起
+    var listingEl = document.getElementById('kbListing');
+    var articleEl = document.getElementById('kbArticleView');
+    var articleToc = document.getElementById('articleToc');
+    var tocList = document.getElementById('kbTocList');
+    var tocCount = document.getElementById('kbTocCount');
+    var tocEmpty = document.getElementById('tocEmpty');
+    var articleContent = document.getElementById('kbArticleContent');
+    var articleTitle = document.getElementById('kbArticleTitle');
+    var articleMeta = document.getElementById('kbArticleMeta');
+    var articleTags = document.getElementById('kbArticleTags');
+    var backBtn = document.getElementById('kbBackBtn');
+    var currentDocUrl = null;
+    var tocObserver = null;
+
+    // ========== 大纲收起/展开 ==========
+    document.getElementById('tocCollapseBtn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        articleToc.classList.toggle('collapsed');
+    });
+
+    // ========== 树形菜单 ==========
     document.querySelectorAll('.kb-tree-cat').forEach(function(cat) {
         cat.addEventListener('click', function() {
             this.classList.toggle('expanded');
@@ -575,22 +717,161 @@
         });
     });
 
-    // 侧边栏文档点击 → 滚动到右侧对应分类
+    // ========== 构建大纲 ==========
+    function buildToc(container) {
+        tocList.innerHTML = '';
+        if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
+
+        var headings = container.querySelectorAll('h2, h3');
+        tocCount.textContent = headings.length;
+
+        if (headings.length === 0) {
+            tocEmpty.style.display = '';
+            return;
+        }
+        tocEmpty.style.display = 'none';
+        articleToc.classList.remove('collapsed');
+
+        headings.forEach(function(h, i) {
+            var id = 'kb-toc-' + i;
+            h.id = id;
+
+            var li = document.createElement('li');
+            li.className = h.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+
+            var a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = h.textContent;
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            li.appendChild(a);
+            tocList.appendChild(li);
+        });
+
+        tocObserver = new IntersectionObserver(function(entries) {
+            var visibleId = null;
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) visibleId = entry.target.id;
+            });
+            if (visibleId) {
+                document.querySelectorAll('#kbTocList a').forEach(function(a) {
+                    a.classList.toggle('toc-active', a.getAttribute('href') === '#' + visibleId);
+                });
+            }
+        }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+        articleContent.querySelectorAll('h2, h3').forEach(function(h) {
+            tocObserver.observe(h);
+        });
+    }
+
+    // ========== 加载文章 ==========
+    function loadArticle(url, name) {
+        listingEl.style.display = 'none';
+        articleEl.style.display = 'block';
+        tocList.innerHTML = '';
+        tocCount.textContent = '0';
+        tocEmpty.style.display = 'none';
+        articleToc.classList.add('collapsed');
+        if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
+
+        articleTitle.textContent = name;
+        articleMeta.innerHTML = '<span><i class="fas fa-spinner fa-pulse"></i> 加载中...</span>';
+        articleTags.innerHTML = '';
+        articleContent.innerHTML = '';
+        currentDocUrl = url;
+
+        fetch(url)
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+
+                articleTitle.textContent = (doc.querySelector('.kb-title') || {}).textContent || name;
+                articleMeta.innerHTML = (doc.querySelector('.kb-meta') || {}).innerHTML || '';
+                articleTags.innerHTML = (doc.querySelector('.kb-tags') || {}).innerHTML || '';
+
+                var fetchedContent = doc.querySelector('.markdown-body');
+                articleContent.innerHTML = fetchedContent ? fetchedContent.innerHTML : '';
+
+                buildToc(articleContent);
+
+                if (history.pushState) {
+                    history.pushState({ kbDoc: url }, name, url);
+                }
+                document.title = name + ' - ' + '知识库';
+
+                articleEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            })
+            .catch(function() {
+                articleMeta.innerHTML = '<span style="color:#e53935;">加载失败，请重试</span>';
+            });
+    }
+
+    // ========== 返回列表 ==========
+    backBtn.addEventListener('click', function() {
+        listingEl.style.display = '';
+        articleEl.style.display = 'none';
+        if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
+        currentDocUrl = null;
+        document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+        if (history.pushState) {
+            history.pushState({ kbDoc: null }, document.title, '/knowledge');
+        }
+        document.title = '知识库';
+    });
+
+    // ========== 事件绑定 ==========
     document.querySelectorAll('.kb-tree-doc').forEach(function(doc) {
         doc.addEventListener('click', function() {
             var url = this.dataset.url;
-            if (url) {
-                // 有链接的直接跳转
-                if (url.indexOf('http') === 0) {
-                    window.open(url, '_blank');
-                } else {
-                    window.pjax && window.pjax.load(url);
-                }
-            }
-            // 高亮当前
+            if (!url) return;
             document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
             this.classList.add('active');
+            loadArticle(url, this.dataset.name);
         });
+    });
+
+    document.querySelectorAll('.kb-doc-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var url = this.dataset.url, name = this.dataset.name;
+            document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+            var sideDoc = document.querySelector('.kb-tree-doc[data-url="' + url + '"]');
+            if (sideDoc) sideDoc.classList.add('active');
+            loadArticle(url, name);
+        });
+    });
+
+    document.querySelectorAll('.kb-doc-item[data-url]').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            if (e.target.closest('a')) return;
+            var url = this.dataset.url;
+            var nameEl = this.querySelector('.kb-doc-name');
+            var name = nameEl ? nameEl.textContent.trim() : '';
+            document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+            var sideDoc = document.querySelector('.kb-tree-doc[data-url="' + url + '"]');
+            if (sideDoc) sideDoc.classList.add('active');
+            loadArticle(url, name);
+        });
+    });
+
+    window.addEventListener('popstate', function(e) {
+        if (e.state && e.state.kbDoc) {
+            var url = e.state.kbDoc;
+            var docEl = document.querySelector('.kb-tree-doc[data-url="' + url + '"]');
+            var name = docEl ? docEl.dataset.name : '';
+            document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+            if (docEl) docEl.classList.add('active');
+            loadArticle(url, name);
+        } else {
+            listingEl.style.display = '';
+            articleEl.style.display = 'none';
+            document.querySelectorAll('.kb-tree-doc').forEach(function(d) { d.classList.remove('active'); });
+        }
     });
 })();
 </script>
@@ -849,9 +1130,9 @@ var kbSearchData = [
     
     { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' },
     
-    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
-    
     { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
+    
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
     
     { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' }
     

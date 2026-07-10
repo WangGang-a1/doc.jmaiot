@@ -1,5 +1,30 @@
 /* Here is your custom css styles. */
 
+/* ===== 教程页面包屑导航 ===== */
+.post-breadcrumb {
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.85rem;
+}
+.post-breadcrumb a {
+    color: #0f9d58;
+    text-decoration: none;
+    font-weight: 500;
+}
+.post-breadcrumb a:hover {
+    color: #0c7d46;
+    text-decoration: underline;
+}
+.post-breadcrumb-sep {
+    margin: 0 6px;
+    color: #ccc;
+    user-select: none;
+}
+.post-breadcrumb-current {
+    color: #999;
+}
+
 /* hexo-filter-github-emojis */
 .github-emoji{
     height: 2em;

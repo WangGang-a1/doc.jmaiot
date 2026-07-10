@@ -358,18 +358,82 @@
 <main class="content">
     <article class="container product-detail">
 
+        <!-- 面包屑导航 -->
+        <div class="breadcrumb-nav" data-aos="fade-down">
+            <a href="/" class="breadcrumb-link"><i class="fas fa-home"></i>&nbsp;首页</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="/products" class="breadcrumb-link">产品中心</a>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current">WiFi-DTU 无线数据传输终端</span>
+        </div>
+
         <!-- 产品概览 -->
         <div class="row product-hero" data-aos="fade-up">
             <div class="col s12 m5">
                 <div class="product-gallery">
                     
-                    <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 无线数据传输终端" class="responsive-img z-depth-1">
+                    
+                    <!-- 多图轮播 -->
+                    
+                    <div class="gallery-carousel" data-aos="fade-up"
+                         data-autoplay="true"
+                         data-interval="4000">
+                        <div class="gallery-main">
+                            <div class="gallery-track">
+                                
+                                <div class="gallery-slide active" data-index="0">
+                                    <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 正面视图" class="responsive-img">
+                                </div>
+                                
+                                <div class="gallery-slide" data-index="1">
+                                    <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 接口视图" class="responsive-img">
+                                </div>
+                                
+                                <div class="gallery-slide" data-index="2">
+                                    <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 应用场景" class="responsive-img">
+                                </div>
+                                
+                            </div>
+                            <button class="gallery-arrow gallery-prev" aria-label="上一张" title="上一张">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="gallery-arrow gallery-next" aria-label="下一张" title="下一张">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <!-- 圆点指示器 -->
+                        <div class="gallery-dots">
+                            
+                            <span class="gallery-dot active" data-index="0"></span>
+                            
+                            <span class="gallery-dot" data-index="1"></span>
+                            
+                            <span class="gallery-dot" data-index="2"></span>
+                            
+                        </div>
+                        <!-- 缩略图条 -->
+                        <div class="gallery-thumbs">
+                            
+                            <div class="gallery-thumb active" data-index="0">
+                                <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 正面视图">
+                            </div>
+                            
+                            <div class="gallery-thumb" data-index="1">
+                                <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 接口视图">
+                            </div>
+                            
+                            <div class="gallery-thumb" data-index="2">
+                                <img src="/products/wifi-dtu/wifi-dtu.png" alt="WiFi-DTU 应用场景">
+                            </div>
+                            
+                        </div>
+                    </div>
                     
                 </div>
             </div>
             <div class="col s12 m7">
                 <h3 class="product-title">WiFi-DTU 无线数据传输终端</h3>
-                <p class="product-summary">WiFi 转串口数据透传模块，支持 TCP/UDP/MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。</p>
+                <p class="product-summary">WiFi 转串口数据透传模块，支持 MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。</p>
 
                 
                 <table class="highlight params-table">
@@ -689,7 +753,7 @@
         text-align: center;
         padding: 0.5rem;
     }
-    .product-gallery img {
+    .product-gallery > img {
         max-height: 320px;
         object-fit: contain;
         border-radius: 10px;
@@ -699,6 +763,128 @@
         padding: 4rem 1rem;
         background: #f5f5f5;
         border-radius: 10px;
+    }
+
+    /* ===== 产品图片轮播 ===== */
+    .gallery-carousel {
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fafafa;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .gallery-main {
+        position: relative;
+        overflow: hidden;
+        background: #fafafa;
+    }
+    .gallery-track {
+        display: flex;
+        transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+        will-change: transform;
+    }
+    .gallery-slide {
+        min-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fafafa;
+    }
+    .gallery-slide img {
+        width: 100%;
+        height: 360px;
+        object-fit: contain;
+        padding: 1rem;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    /* 轮播箭头 */
+    .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.88);
+        color: #444;
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 2;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        transition: all 0.25s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+    }
+    .gallery-arrow:hover {
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        color: #0f9d58;
+        transform: translateY(-50%) scale(1.08);
+    }
+    .gallery-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+    .gallery-prev { left: 14px; }
+    .gallery-next { right: 14px; }
+    /* 圆点指示器 */
+    .gallery-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 0 8px;
+    }
+    .gallery-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #d0d0d0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .gallery-dot:hover {
+        background: #aaa;
+    }
+    .gallery-dot.active {
+        background: #0f9d58;
+        transform: scale(1.35);
+        box-shadow: 0 0 6px rgba(15,157,88,0.4);
+    }
+    /* 缩略图条 */
+    .gallery-thumbs {
+        display: flex;
+        gap: 8px;
+        padding: 0 14px 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .gallery-thumb {
+        width: 62px;
+        height: 62px;
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        opacity: 0.55;
+        transition: all 0.25s;
+        flex-shrink: 0;
+    }
+    .gallery-thumb:hover {
+        opacity: 0.85;
+        border-color: #ccc;
+    }
+    .gallery-thumb.active {
+        border-color: #0f9d58;
+        opacity: 1;
+        box-shadow: 0 2px 8px rgba(15,157,88,0.25);
+    }
+    .gallery-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
     .product-title {
         font-size: 1.75rem;
@@ -961,8 +1147,31 @@
         .product-section .card-content {
             padding: 1.2rem 1rem;
         }
-        .product-gallery img {
+        .product-gallery > img {
             max-height: 220px;
+        }
+        /* 轮播移动端适配 */
+        .gallery-slide img {
+            height: 240px;
+        }
+        .gallery-arrow {
+            width: 34px;
+            height: 34px;
+            font-size: 0.8rem;
+        }
+        .gallery-prev { left: 6px; }
+        .gallery-next { right: 6px; }
+        .gallery-thumb {
+            width: 48px;
+            height: 48px;
+        }
+        .gallery-dots {
+            gap: 8px;
+            padding: 10px 0 4px;
+        }
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
         }
         .tab-btn {
             padding: 7px 14px;
@@ -994,6 +1203,188 @@
             }
         });
     });
+
+    // ===== 图片轮播（支持自动播放）=====
+    (function() {
+        var carousel = document.querySelector('.gallery-carousel');
+        var track    = document.querySelector('.gallery-track');
+        var slides   = document.querySelectorAll('.gallery-slide');
+        var dots     = document.querySelectorAll('.gallery-dot');
+        var thumbs   = document.querySelectorAll('.gallery-thumb');
+        var prevBtn  = document.querySelector('.gallery-prev');
+        var nextBtn  = document.querySelector('.gallery-next');
+
+        if (!track || slides.length < 2) return;
+
+        var currentIndex = 0;
+        var isTransitioning = false;
+        var touchStartX = 0;
+        var touchStartY = 0;
+        var touchMoved = false;
+
+        // ---- 自动播放配置 ----
+        var autoplay    = carousel ? carousel.dataset.autoplay === 'true' : true;
+        var interval    = parseInt(carousel ? carousel.dataset.interval : '4000') || 4000;
+        var autoTimer   = null;
+        var resumeDelay = 3000;  // 手动操作后暂停 N 毫秒再恢复自动播放
+        var resumeTimer = null;
+        var isHovering  = false;
+
+        function goTo(index) {
+            if (isTransitioning) return;
+            if (index === currentIndex) return;
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+
+            isTransitioning = true;
+            currentIndex = index;
+            track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+            // 更新圆点
+            dots.forEach(function(d, i) {
+                d.classList.toggle('active', i === index);
+            });
+            // 更新缩略图
+            thumbs.forEach(function(t, i) {
+                t.classList.toggle('active', i === index);
+            });
+
+            setTimeout(function() {
+                isTransitioning = false;
+            }, 460);
+        }
+
+        // ---- 自动播放控制 ----
+        function startAutoPlay() {
+            if (!autoplay || autoTimer) return;
+            autoTimer = setInterval(function() {
+                if (!isHovering && !isTransitioning && document.hidden === false) {
+                    goTo(currentIndex + 1);
+                }
+            }, interval);
+        }
+
+        function stopAutoPlay() {
+            if (autoTimer) {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+        }
+
+        function pauseAndResume() {
+            stopAutoPlay();
+            if (resumeTimer) clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(function() {
+                startAutoPlay();
+            }, resumeDelay);
+        }
+
+        function onMouseEnter() {
+            isHovering = true;
+            stopAutoPlay();
+        }
+
+        function onMouseLeave() {
+            isHovering = false;
+            if (!autoTimer) startAutoPlay();
+        }
+
+        // ---- 事件绑定 ----
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                goTo(currentIndex - 1);
+                pauseAndResume();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                goTo(currentIndex + 1);
+                pauseAndResume();
+            });
+        }
+
+        // 圆点点击
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                goTo(parseInt(this.dataset.index, 10));
+                pauseAndResume();
+            });
+        });
+
+        // 缩略图点击
+        thumbs.forEach(function(thumb) {
+            thumb.addEventListener('click', function() {
+                goTo(parseInt(this.dataset.index, 10));
+                pauseAndResume();
+            });
+        });
+
+        // 鼠标悬停暂停
+        if (carousel) {
+            carousel.addEventListener('mouseenter', onMouseEnter);
+            carousel.addEventListener('mouseleave', onMouseLeave);
+        }
+
+        // 触摸滑动（移动端）
+        track.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            touchMoved = false;
+            stopAutoPlay();  // 手指触碰时暂停
+        }, { passive: true });
+
+        track.addEventListener('touchmove', function(e) {
+            touchMoved = true;
+        }, { passive: true });
+
+        track.addEventListener('touchend', function(e) {
+            if (!touchMoved) {
+                // 只是点击，没有滑动 → 恢复自动播放
+                startAutoPlay();
+                return;
+            }
+            var diffX = touchStartX - e.changedTouches[0].screenX;
+            var diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    goTo(currentIndex + 1);
+                } else {
+                    goTo(currentIndex - 1);
+                }
+            }
+            // 滑动后延迟恢复
+            pauseAndResume();
+        });
+
+        // 键盘左右箭头
+        document.addEventListener('keydown', function(e) {
+            var tag = document.activeElement ? document.activeElement.tagName : '';
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goTo(currentIndex - 1);
+                pauseAndResume();
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                goTo(currentIndex + 1);
+                pauseAndResume();
+            }
+        });
+
+        // 页面不可见时暂停，回来后恢复
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // ---- 启动 ----
+        startAutoPlay();
+    })();
 })();
 </script>
     </article>
@@ -1244,22 +1635,22 @@ var visiblePostUrls = {};
 // 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
 var productSearchData = [
     
-    { title: 'WiFi-DTU 无线数据传输终端', content: 'WiFi 转串口数据透传模块，支持 TCP/UDP/MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/wifi-dtu/index.html', type: 'product' },
+    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/4g-dtu/index.html', type: 'product' },
     
-    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/4g-dtu/index.html', type: 'product' }
+    { title: 'WiFi-DTU 无线数据传输终端', content: 'WiFi 转串口数据透传模块，支持 MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/wifi-dtu/index.html', type: 'product' }
     
 ];
 
 // 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
 var kbSearchData = [
     
-    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
-    
-    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' },
+    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' },
     
     { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
     
-    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' }
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
+    
+    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' }
     
 ];
 </script>

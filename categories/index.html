@@ -363,10 +363,18 @@
                     <span class="filter-label"><i class="fas fa-bookmark"></i>&nbsp;教程类别：</span>
                     <span class="filter-chip chip chip-active" data-filter="category" data-value="">全部</span>
                     
+                    <span class="filter-chip chip chip-default" data-filter="category" data-value="建站">建站</span>
+                    
                 </div>
                 <div class="filter-row">
                     <span class="filter-label"><i class="fas fa-tags"></i>&nbsp;教程标签：</span>
                     <span class="filter-chip chip chip-active" data-filter="tag" data-value="">全部</span>
+                    
+                    <span class="filter-chip chip chip-default" data-filter="tag" data-value="建站">建站</span>
+                    
+                    <span class="filter-chip chip chip-default" data-filter="tag" data-value="博客">博客</span>
+                    
+                    <span class="filter-chip chip chip-default" data-filter="tag" data-value="经验">经验</span>
                     
                 </div>
             </div>
@@ -378,6 +386,61 @@
     <article id="articles" class="container articles">
         <div class="row article-row">
             
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in"
+                 data-categories="建站"
+                 data-tags="建站,博客,经验">
+                <div class="card">
+                    <a href="/2026/07/09/dajiangerenboke/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="搭建个人博客">
+                            
+                            <span class="card-title">搭建个人博客</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                使用GitHub和coding（部署会收费）作为终端，Hexo为框架建立个人博客
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories?category=建站" class="post-category">
+                                    建站
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/categories?tag=建站">
+                            <span class="chip bg-color">建站</span>
+                        </a>
+                        
+                        <a href="/categories?tag=博客">
+                            <span class="chip bg-color">博客</span>
+                        </a>
+                        
+                        <a href="/categories?tag=经验">
+                            <span class="chip bg-color">经验</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
         </div>
     </article>
@@ -734,7 +797,7 @@
 <script>
 // 可见教程 URL 集合（用于过滤 search.xml 中隐藏的教程）
 var visiblePostUrls = {};
-
+visiblePostUrls['2026/07/09/dajiangerenboke/'] = true;
 
 // 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
 var productSearchData = [
@@ -752,9 +815,9 @@ var kbSearchData = [
     
     { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
     
-    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
+    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' },
     
-    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' }
+    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' }
     
 ];
 </script>

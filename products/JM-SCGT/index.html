@@ -433,7 +433,7 @@
             </div>
             <div class="col s12 m7">
                 <h3 class="product-title">4G-DTU 数据传输终端</h3>
-                <p class="product-summary">4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。</p>
+                <p class="product-summary">4G LTE 转串口数据透传模块，支持全网通，UART 接口，MQTT协议，稳定可靠的数据传输方案，适配主流云平台。</p>
 
                 
                 <table class="highlight params-table">
@@ -441,7 +441,12 @@
                         
                         <tr>
                             <td class="param-label">通信接口</td>
-                            <td class="param-value">RS232 / RS485 / TTL 可选</td>
+                            <td class="param-value">UART (TTL)</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="param-label">支持协议</td>
+                            <td class="param-value">MQTT</td>
                         </tr>
                         
                         <tr>
@@ -460,13 +465,18 @@
                         </tr>
                         
                         <tr>
+                            <td class="param-label">工作电流</td>
+                            <td class="param-value">1000mA</td>
+                        </tr>
+                        
+                        <tr>
                             <td class="param-label">传输速率</td>
                             <td class="param-value">上行 5Mbps / 下行 10Mbps</td>
                         </tr>
                         
                         <tr>
                             <td class="param-label">产品尺寸</td>
-                            <td class="param-value">85 × 55 × 25 mm</td>
+                            <td class="param-value">35 × 35 mm</td>
                         </tr>
                         
                         <tr>
@@ -476,7 +486,7 @@
                         
                         <tr>
                             <td class="param-label">天线接口</td>
-                            <td class="param-value">SMA 外置天线</td>
+                            <td class="param-value">IPEX 外置天线</td>
                         </tr>
                         
                     </tbody>
@@ -490,7 +500,7 @@
                     
                     <a href="/products?tag=DTU"><span class="chip bg-color">DTU</span></a>
                     
-                    <a href="/products?tag=全网通"><span class="chip bg-color">全网通</span></a>
+                    <a href="/products?tag=MQTT"><span class="chip bg-color">MQTT</span></a>
                     
                 </div>
                 
@@ -516,16 +526,18 @@
         
         <div id="tab-overview" class="tab-panel active" data-aos="fade-up">
             
-                <div class="card product-section"><div class="card-content"><div class="markdown-body"><h2>概述特点</h2><h3 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h3><p>4G-DTU 是一款<strong>工业级 4G LTE 数据传输终端</strong>，支持全网通（移动 &#x2F; 联通 &#x2F; 电信），可将串口设备通过 4G 网络接入互联网。产品支持 RS232、RS485、TTL 三种串口电平，适配 PLC、仪表、传感器等各类工业设备。</p>
+                <div class="card product-section"><div class="card-content"><div class="markdown-body"><h2>概述特点</h2><h3 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h3><p>4G-DTU 是一款<strong>工业级 4G LTE 数据传输终端</strong>，支持全网通（移动 &#x2F; 联通 &#x2F; 电信），可将串口设备通过 4G 网络接入互联网。产品支持 TTL 电平，MQTT 协议，适配 PLC、仪表、传感器等各类工业设备。</p>
+<blockquote>
+<p>如需其他版本资料或定制固件，请联系技术支持。</p>
+</blockquote>
 <h3 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h3><ul>
 <li><strong>全网通 4G</strong> — 移动 &#x2F; 联通 &#x2F; 电信三网通用，Cat.1 稳定可靠</li>
-<li><strong>多接口兼容</strong> — RS232 &#x2F; RS485 &#x2F; TTL 三种串口可选，适配各类工业设备</li>
+<li><strong>多接口兼容</strong> — UART 接口，适配各类工业设备</li>
 <li><strong>宽压供电</strong> — DC 5V ~ 36V 宽电压，适应车载、太阳能、工业柜等场景</li>
-<li><strong>云平台对接</strong> — TCP &#x2F; UDP &#x2F; MQTT &#x2F; HTTP 协议，支持阿里云、OneNET、EMQX 等</li>
-<li><strong>不掉线</strong> — 内置硬件看门狗 + 心跳包 + 注册包机制，7×24 小时稳定在线</li>
+<li><strong>云平台对接</strong> — MQTT 协议，支持阿里云、OneNET、EMQX 等主流云平台</li>
+<li><strong>不掉线</strong> — 内置硬件看门狗 + 心跳包机制，7×24 小时稳定在线</li>
 <li><strong>双模配置</strong> — 串口 AT 指令 + 远程配置双模式，部署后仍可远程管理</li>
-<li><strong>协议转换</strong> — 支持 Modbus RTU ↔ Modbus TCP 协议转换</li>
-<li><strong>导轨安装</strong> — 导轨式外壳设计，便于工业机柜 DIN 导轨安装</li>
+<li><strong>插针安装</strong> — 插针式模块设计，便于集成在电路板上，与本公司其他插针款DTU PIN TO PIN 兼容</li>
 </ul>
 <h3 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h3><table>
 <thead>
@@ -552,15 +564,14 @@
 </tr>
 </tbody></table>
 <h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><ol>
-<li><strong>安装 SIM 卡</strong> — 支持标准物联网卡，插入卡槽</li>
-<li><strong>连接天线</strong> — 拧紧 SMA 4G 天线，确保信号良好</li>
-<li><strong>接入电源</strong> — 推荐 DC 12V &#x2F; 1A，PWR 指示灯亮起</li>
-<li><strong>等待联网</strong> — NET 灯常亮表示已注册 4G 网络</li>
-<li><strong>配置服务器</strong> — 串口发送 <code>AT+SERVER=domain,port</code> 设置云平台地址</li>
-<li><strong>进入透传</strong> — <code>AT+MODE=1</code> 进入透传模式，数据自动上报云端</li>
+<li><strong>连接天线</strong> — 插入 IPEX，确保信号良好</li>
+<li><strong>接入电源</strong> — 推荐 DC 5V &#x2F; 1A，电源 指示灯亮起</li>
+<li><strong>等待联网</strong> — NET 灯慢闪表示已注册 4G 网络</li>
+<li><strong>配置服务器</strong> — 配置网页，设置云平台地址和端口，成功设置后NET 灯常亮</li>
+<li><strong>进入透传</strong> — 配置完成后，模块会自动进入透传模式，串口数据直达云端</li>
 </ol>
 <blockquote>
-<p><strong>提示</strong>：详细 AT 指令说明请查看「相关下载」中的 AT 指令集手册。</p>
+<p><strong>提示</strong>：详细 DTU 指令说明请查看「相关下载」中的 JM-4G-DTU 通用指令集手册。</p>
 </blockquote>
 </div></div></div>
             
@@ -582,53 +593,128 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td><strong>VIN+</strong></td>
-<td>电源正极，DC 5V ~ 36V 宽压输入</td>
-<td>推荐 12V &#x2F; 1A，建议加 TVS 防护</td>
+<td><strong>LINK</strong></td>
+<td>通讯状态指示</td>
+<td>LINK开启时候常量，通讯时闪烁</td>
 </tr>
 <tr>
 <td>2</td>
-<td><strong>GND</strong></td>
-<td>电源地</td>
-<td>与设备共地</td>
+<td><strong>TDX</strong></td>
+<td>串口数据传输引脚</td>
+<td>内部调试TX，不建议外部连接</td>
 </tr>
 <tr>
 <td>3</td>
-<td><strong>485-A</strong></td>
-<td>RS485 差分信号 A 端</td>
-<td>接从设备 A 端，建议 120Ω 终端电阻</td>
+<td><strong>RDX</strong></td>
+<td>串口数据传输引脚</td>
+<td>内部调试RX，不建议外部连接</td>
 </tr>
 <tr>
 <td>4</td>
-<td><strong>485-B</strong></td>
-<td>RS485 差分信号 B 端</td>
-<td>接从设备 B 端，建议 120Ω 终端电阻</td>
+<td><strong>NET</strong></td>
+<td>联网状态指示</td>
+<td>未注网快闪，已注网慢闪，MQTT已连接常亮</td>
 </tr>
 <tr>
 <td>5</td>
-<td><strong>TXD</strong></td>
-<td>TTL 串口发送，接用户 MCU RX</td>
-<td>TTL 3.3V 电平</td>
+<td><strong>BOOT</strong></td>
+<td>BOOT 引脚</td>
+<td>悬空即可</td>
 </tr>
 <tr>
 <td>6</td>
-<td><strong>RXD</strong></td>
-<td>TTL 串口接收，接用户 MCU TX</td>
-<td>TTL 3.3V 电平</td>
+<td><strong>GND</strong></td>
+<td>地线</td>
+<td>与 MCU 共地</td>
 </tr>
 <tr>
 <td>7</td>
-<td><strong>LINK</strong></td>
-<td>4G 网络连接状态指示</td>
-<td>联网成功输出高电平，可接 LED</td>
+<td><strong>TX</strong></td>
+<td>串口发送，接用户 MCU RX</td>
+<td>TTL 3.3V 电平</td>
 </tr>
 <tr>
 <td>8</td>
-<td><strong>RST</strong></td>
-<td>硬件复位，低电平有效</td>
-<td>内部上拉，悬空即可</td>
+<td><strong>RX</strong></td>
+<td>串口接收，接用户 MCU TX</td>
+<td>TTL 3.3V 电平</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>EN</strong></td>
+<td>使能引脚</td>
+<td>悬空 &#x3D; 使能，接 GND &#x3D; 禁用</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>5V</strong></td>
+<td>5V 电源</td>
+<td>支持 5V~12V 输入，建议并联 100μF 去耦电容</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>NC</strong></td>
+<td>保留引脚</td>
+<td>悬空</td>
 </tr>
 </tbody></table>
+<blockquote>
+<p><strong>提示</strong>：详细 封装 请查看「相关下载」中的 JM-4G-DTU 通用封装。<br><strong>提示</strong>：京墨科技4G-DTU模块封装通用。</p>
+</blockquote>
 </div></div></div>
             
         </div>
@@ -638,39 +724,25 @@
         
         <div id="tab-downloads" class="tab-panel" style="display:none;" data-aos="fade-up">
             
-                <div class="card product-section"><div class="card-content"><div class="markdown-body"><h2>相关下载</h2><table>
-<thead>
-<tr>
-<th>资料名称</th>
-<th>说明</th>
-<th>链接</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>用户手册 V3.0</strong></td>
-<td>硬件规格、接口定义、安装说明、故障排查</td>
-<td><a href="/downloads/4g-dtu-manual.pdf">下载 PDF</a></td>
-</tr>
-<tr>
-<td><strong>AT 指令集参考</strong></td>
-<td>全部 AT 指令格式、参数说明与示例</td>
-<td><a href="/downloads/4g-dtu-at-commands.pdf">下载 PDF</a></td>
-</tr>
-<tr>
-<td><strong>配置工具软件</strong></td>
-<td>Windows 上位机配置工具，支持参数可视化</td>
-<td><a href="/downloads/4g-dtu-config-tool.zip">下载 ZIP</a></td>
-</tr>
-<tr>
-<td><strong>Modbus 协议说明</strong></td>
-<td>Modbus RTU ↔ TCP 协议转换配置详解</td>
-<td><a href="/downloads/4g-dtu-modbus-guide.pdf">下载 PDF</a></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>如需其他版本资料或定制固件，请联系技术支持。</p>
-</blockquote>
-</div></div></div>
+            <div class="card product-section"><div class="card-content">
+                <span class="card-title section-title"><i class="fas fa-download"></i>&nbsp;相关下载</span>
+                <div class="download-list">
+                    <a href="/products/JM-SCGT/downloads/JM-4G-DTU%20%E9%80%9A%E7%94%A8%E6%8C%87%E4%BB%A4%E9%9B%86%E6%89%8B%E5%86%8C.pdf" class="download-item waves-effect" download >
+                        <i class="fas fa-file-pdf fa-fw"></i><span class="download-name">JM-4G-DTU 通用指令集手册</span>
+                        <i class="fas fa-arrow-down right grey-text"></i>
+                    </a>
+                
+                    <a href="/products/JM-SCGT/downloads/JM-4G-DTU%20%E4%B8%8A%E4%BD%8D%E6%9C%BA%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.pdf" class="download-item waves-effect" download >
+                        <i class="fas fa-file-pdf fa-fw"></i><span class="download-name">JM-4G-DTU 上位机配网说明</span>
+                        <i class="fas fa-arrow-down right grey-text"></i>
+                    </a>
+                
+                    <a href="/products/JM-SCGT/downloads/JM-4G-DTU%20%E9%80%9A%E7%94%A8%E5%B0%81%E8%A3%85.elibz2" class="download-item waves-effect" download >
+                        <i class="fas fa-file-archive fa-fw"></i><span class="download-name">JM-4G-DTU 通用封装</span>
+                        <i class="fas fa-arrow-down right grey-text"></i>
+                    </a>
+                </div>
+            </div></div>
             
         </div>
         
@@ -705,12 +777,12 @@
                         <i class="fas fa-chevron-left"></i>&nbsp;上一个产品
                     </div>
                     <div class="card nav-card">
-                        <a href="/products/JM-WT24U(S)/index.html">
+                        <a href="/products/JM-WT25(S)/index.html">
                             <div class="card-image">
                                 
-                                <img src="/products/JM-WT24U(S)/images/JM-WT24U(S)TOP.png" class="responsive-img" alt="WiFi-DTU 无线数据传输终端">
+                                <img src="/products/JM-WT25(S)/images/JM-WT25(S)TOP.png" class="responsive-img" alt="JM-WT25(S)">
                                 
-                                <span class="card-title">WiFi-DTU 无线数据传输终端</span>
+                                <span class="card-title">JM-WT25(S)</span>
                             </div>
                         </a>
                     </div>
@@ -1633,22 +1705,26 @@ visiblePostUrls['2026/07/09/dajiangerenboke/'] = true;
 // 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
 var productSearchData = [
     
-    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，RS232/RS485 接口，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/JM-SCGT/index.html', type: 'product' },
+    { title: '4G-DTU 数据传输终端', content: '4G LTE 转串口数据透传模块，支持全网通，UART 接口，MQTT协议，稳定可靠的数据传输方案，适配主流云平台。', url: 'products/JM-SCGT/index.html', type: 'product' },
     
-    { title: 'WiFi-DTU 无线数据传输终端', content: 'WiFi 转串口数据透传模块，支持 MQTT 协议，工业级低功耗设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/JM-WT24U(S)/index.html', type: 'product' }
+    { title: 'JM-WT24', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/JM-WT24/index.html', type: 'product' },
+    
+    { title: 'JM-WT24U(S)', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/JM-WT24U(S)/index.html', type: 'product' },
+    
+    { title: 'JM-WT25(S)', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: 'products/JM-WT25(S)/index.html', type: 'product' }
     
 ];
 
 // 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
 var kbSearchData = [
     
-    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' },
+    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' },
+    
+    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' },
     
     { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: 'kb/modbus/index.html', type: 'kb' },
     
-    { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: 'kb/rs485/index.html', type: 'kb' },
-    
-    { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: 'kb/mqtt/index.html', type: 'kb' }
+    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: 'kb/dtu-compare/index.html', type: 'kb' }
     
 ];
 </script>

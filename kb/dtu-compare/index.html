@@ -393,7 +393,7 @@
 </thead>
 <tbody><tr>
 <td><strong>通信方式</strong></td>
-<td>WiFi 2.4GHz</td>
+<td>WiFi 2.4GHz+5GHz</td>
 <td>4G LTE Cat.1</td>
 </tr>
 <tr>
@@ -423,12 +423,12 @@
 </tr>
 <tr>
 <td><strong>接口</strong></td>
-<td>TTL UART</td>
+<td>RS232 &#x2F; RS485 &#x2F; TTL</td>
 <td>RS232 &#x2F; RS485 &#x2F; TTL</td>
 </tr>
 <tr>
 <td><strong>供电</strong></td>
-<td>3.3V-5V</td>
+<td>5V-12V</td>
 <td>5V-36V 宽压</td>
 </tr>
 </tbody></table>
@@ -445,7 +445,7 @@
 <li>需要宽压供电</li>
 </ul>
 <h2 id="混合组网"><a href="#混合组网" class="headerlink" title="混合组网"></a>混合组网</h2><p>实际项目中常采用 <strong>WiFi + 4G 混合组网</strong>：传感器 → WiFi-DTU → 本地网关 → 4G-DTU → 云平台。兼顾本地低延迟和远程广覆盖。</p>
-<p>两款 DTU 均支持 <strong>MQTT &#x2F; TCP &#x2F; UDP &#x2F; HTTP</strong> 协议，可对接阿里云 IoT、OneNET、EMQX、AWS IoT 等主流云平台。</p>
+<p>两款 DTU 均支持 <strong>MQTT</strong> 协议，可对接阿里云 IoT、OneNET、EMQX、AWS IoT 等主流云平台。</p>
 
                 </div>
             </div>
@@ -731,9 +731,9 @@ var productSearchData = [
 // 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
 var kbSearchData = [
     
-    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: '/knowledge?kb=%2Fkb%2Fmodbus%2Findex.html', type: 'kb' },
-    
     { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: '/knowledge?kb=%2Fkb%2Fdtu-compare%2Findex.html', type: 'kb' },
+    
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: '/knowledge?kb=%2Fkb%2Fmodbus%2Findex.html', type: 'kb' },
     
     { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: '/knowledge?kb=%2Fkb%2Frs485%2Findex.html', type: 'kb' },
     

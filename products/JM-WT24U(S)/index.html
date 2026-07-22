@@ -529,7 +529,7 @@
         
         <div id="tab-overview" class="tab-panel active" data-aos="fade-up">
             
-                <div class="card product-section"><div class="card-content"><div class="markdown-body"><h2>概述特点</h2><h3 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h3><p>JM-WT24U(S) 是一款<strong>工业级 WiFi&#x2F;BLE 转串口数据透传模块</strong>，基于 ESP12F 模组打造。模块可将用户设备通过串口接入 WiFi&#x2F;BLE 网络，实现数据的双向透明传输，广泛应用于物联网数据采集与远程控制场景。</p>
+                <div class="card product-section"><div class="card-content"><div class="markdown-body"><h2>概述特点</h2><h3 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h3><p>JM-WT24U(S) 是一款<strong>工业级 WiFi&#x2F;BLE 转串口数据透传模块</strong>，基于 ESP12F 模组打造。模块可将用户设备通过串口接入 WiFi&#x2F;BLE 网络，实现数据的双向透明传输，广泛应用于物联网数据采集与远程控制场景，可使用 <strong>蓝牙&#x2F;串口</strong> 配置模块参数。</p>
 <blockquote>
 <p>如需其他版本资料或定制固件，请联系技术支持。</p>
 </blockquote>
@@ -604,13 +604,13 @@
 <td>2</td>
 <td><strong>TDX</strong></td>
 <td>串口数据传输引脚</td>
-<td>内部调试TX，不建议外部连接</td>
+<td>配置TX，可外部连接</td>
 </tr>
 <tr>
 <td>3</td>
 <td><strong>RDX</strong></td>
 <td>串口数据传输引脚</td>
-<td>内部调试RX，不建议外部连接</td>
+<td>配置RX，可外部连接</td>
 </tr>
 <tr>
 <td>4</td>
@@ -1667,7 +1667,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.5k</span>&nbsp;字
+                class="white-color">13.6k</span>&nbsp;字
             
             
             
@@ -1837,16 +1837,16 @@
 <script>
 // 可见教程 URL 集合（用于过滤 search.xml 中隐藏的教程）
 var visiblePostUrls = {};
-
+visiblePostUrls['2026/07/15/shuangzixing4gdtuzhilingjishuoming'] = true;visiblePostUrls['2026/07/15/shuangzixingwifidtuzhilingjishuoming'] = true;
 
 // 产品搜索数据（从产品 markdown 页面生成，visible !== false 才纳入）
 var productSearchData = [
     
     { title: 'JM-WT24', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: '/products/JM-WT24/index.html', type: 'product' },
     
-    { title: 'JM-WT24U(S)', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: '/products/JM-WT24U(S)/index.html', type: 'product' },
-    
     { title: 'JM-SCGT', content: '4G LTE 转串口数据透传模块，支持全网通，UART 接口，MQTT协议，稳定可靠的数据传输方案，适配主流云平台。', url: '/products/JM-SCGT/index.html', type: 'product' },
+    
+    { title: 'JM-WT24U(S)', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: '/products/JM-WT24U(S)/index.html', type: 'product' },
     
     { title: 'JM-WT25(S)', content: 'WiFi/BLE 转串口数据透传模块，支持 MQTT 协议，工业级设计，广泛应用于物联网数据采集与远程控制场景。', url: '/products/JM-WT25(S)/index.html', type: 'product' }
     
@@ -1855,11 +1855,11 @@ var productSearchData = [
 // 知识库搜索数据（从 kb 页面生成，visible !== false 才纳入）
 var kbSearchData = [
     
-    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: '/knowledge?kb=%2Fkb%2Fmodbus%2Findex.html', type: 'kb' },
+    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: '/knowledge?kb=%2Fkb%2Fdtu-compare%2Findex.html', type: 'kb' },
     
     { title: 'MQTT 协议入门与实践', content: 'MQTT 协议原理、QoS 等级、常用 Broker 部署教程与客户端开发示例，适合物联网初学者。', url: '/knowledge?kb=%2Fkb%2Fmqtt%2Findex.html', type: 'kb' },
     
-    { title: 'DTU 选型对比指南', content: 'WiFi-DTU 与 4G-DTU 功能对比、适用场景分析与工业现场选型建议。', url: '/knowledge?kb=%2Fkb%2Fdtu-compare%2Findex.html', type: 'kb' },
+    { title: 'Modbus 通信协议详解', content: 'Modbus RTU/ASCII/TCP 三种通信模式详解，含寄存器映射规则、功能码说明与调试工具推荐。', url: '/knowledge?kb=%2Fkb%2Fmodbus%2Findex.html', type: 'kb' },
     
     { title: 'RS485 通信基础', content: 'RS485 差分信号原理、接线规范、终端电阻计算与常见故障排查。', url: '/knowledge?kb=%2Fkb%2Frs485%2Findex.html', type: 'kb' }
     

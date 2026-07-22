@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="搭建个人博客, 京墨科技">
+    <meta name="keywords" content="双子星 WIFI-DTU 指令集说明, 京墨科技">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>搭建个人博客 | 京墨科技</title>
+    <title>双子星 WIFI-DTU 指令集说明 | 京墨科技</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">搭建个人博客</h1>
+                    <h1 class="description center-align post-title">双子星 WIFI-DTU 指令集说明</h1>
                 </div>
             </div>
         </div>
@@ -490,23 +490,19 @@
                 <span class="post-breadcrumb-sep">/</span>
                 <a href="/categories">教程列表</a>
                 <span class="post-breadcrumb-sep">/</span>
-                <span class="post-breadcrumb-current">搭建个人博客</span>
+                <span class="post-breadcrumb-current">双子星 WIFI-DTU 指令集说明</span>
             </div>
             <div class="row tag-cate">
                 <div class="col s7">
                     
                     <div class="article-tag">
                         
-                            <a href="/categories?tag=建站">
-                                <span class="chip bg-color">建站</span>
+                            <a href="/categories?tag=双子星">
+                                <span class="chip bg-color">双子星</span>
                             </a>
                         
-                            <a href="/categories?tag=博客">
-                                <span class="chip bg-color">博客</span>
-                            </a>
-                        
-                            <a href="/categories?tag=经验">
-                                <span class="chip bg-color">经验</span>
+                            <a href="/categories?tag=WIFI">
+                                <span class="chip bg-color">WIFI</span>
                             </a>
                         
                     </div>
@@ -517,8 +513,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories?category=建站" class="post-category">
-                                建站
+                            <a href="/categories?category=协议解析" class="post-category">
+                                协议解析
                             </a>
                         
                     </div>
@@ -530,14 +526,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-07-09
+                    2026-07-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-07-11
+                    2026-07-15
                 </div>
                 
 
@@ -615,7 +611,7 @@ ssh-keygen -t rsa -C &quot;Your Email Address&quot;
 Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):
 </code></pre>
 <p>出现该结果直接回车（也可以自定义key名称，一般默认就好）<br>会出现输入密码<br>Enter passphrase (empty for no passphrase):【输入加密串】【加密串我们看不见，你直接输入就好，输完密码回车键确定】<br>Enter same passphrase again:【再次输入加密串】<br>如果密码输入不一致，会提示再次输入：<br>Passphrases do not match. Try again.<br>这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。<br>如果出现下图的界面，就说明key生成成功。同时从Your public key has been saved in &#x2F;c&#x2F;Users&#x2F;User&#x2F;.ssh&#x2F;id_rsa.pub.能看到ssh key保存的位置。<br><img src="/githexo14.png"></p>
-<h3 id="添加-SSH-Key-到-GitHub"><a href="#添加-SSH-Key-到-GitHub" class="headerlink" title="添加 SSH Key 到 GitHub"></a>添加 SSH Key 到 GitHub</h3><p>1.回到Github，按照顺序点击右上角的头像-Settings-SSH and GPG keys -New SSH key<br><img src="/githexo15.png"><br>2.然后使用Notepad++打开本地id_rsa.pub（你的key名称）文件（ssh key文件）。如果看不到这个文件，则没有开启查看隐藏文件权限。将id_rsa.pub（SSH key文件）里面的内容全选复制粘贴到刚刚GitHub上通过New SSH key创建的key方框里，Title随便写或者直接空着不写也可以，直接点击Add SHH key就好了。<br><img src="/githexo16.png"><br><img src="/githexo17.png"><br>3.在GitHub添加SSH key之后，回到Git Bash界面输入ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>查看是否添加成功，如果出现下图的问题，直接输入yes同意即可！</p>
+<h3 id="添加-SSH-Key-到-GitHub"><a href="#添加-SSH-Key-到-GitHub" class="headerlink" title="添加 SSH Key 到 GitHub"></a>添加 SSH Key 到 GitHub</h3><p>1.回到Github，按照顺序点击右上角的头像-Settings-SSH and GPG keys -New SSH key<br><img src="/githexo15.png"><br>2.然后使用Notepad++打开本地id_rsa.pub（你的key名称）文件（ssh key文件）。如果看不到这个文件，则没有开启查看隐藏文件权限。将id_rsa.pub（SSH key文件）里面的内容全选复制粘贴到刚刚GitHub上通过New SSH key创建的key方框里，Title随便写或者直接空着不写也可以，直接点击Add SHH key就好了。<br><img src="/githexo16.png"><br><img src="/githexo17.png"><br>3.在GitHub添加SSH key之后，回到Git Bash界面输入ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>查看是否添加成功，如果出现下图的问题，直接输入yes同意即可！</p>
 <pre><code class="bash">The authenticity of host &#39;github.com (192.30.255.113)&#39; can&#39;t be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8. 
 Are you sure you want to continue connecting (yes/no)? 
@@ -652,8 +648,8 @@ hexo server
 <p>我们使用浏览器访问，发现Hexo在本地已经部署好了！<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
 <h3 id="将博客双线部署至Github、coding"><a href="#将博客双线部署至Github、coding" class="headerlink" title="将博客双线部署至Github、coding"></a>将博客双线部署至Github、coding</h3><p>1.找到我们上面说的Hexo的全局配置文件<br><img src="/githexo27.png"><br>使用Notepad++进行编辑，将deploy一项修改成如图所示：</p>
 <blockquote>
-<p>deploy:<br> type: git<br> message: “”<br> repo:<br>   github: <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a>:WangGang-a1&#x2F;WangGang-a1.github.io.git,master</p>
-<p>   coding: <a href="mailto:&#103;&#105;&#116;&#64;&#x65;&#x2e;&#x63;&#x6f;&#x64;&#x69;&#x6e;&#x67;&#x2e;&#110;&#101;&#x74;">&#103;&#105;&#116;&#64;&#x65;&#x2e;&#x63;&#x6f;&#x64;&#x69;&#x6e;&#x67;&#x2e;&#110;&#101;&#x74;</a>:nilinkeji&#x2F;nilinkeji&#x2F;nilinkeji.git,master</p>
+<p>deploy:<br> type: git<br> message: “”<br> repo:<br>   github: <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:WangGang-a1&#x2F;WangGang-a1.github.io.git,master</p>
+<p>   coding: <a href="mailto:&#x67;&#x69;&#x74;&#64;&#101;&#46;&#99;&#111;&#x64;&#105;&#110;&#103;&#x2e;&#x6e;&#x65;&#x74;">&#x67;&#x69;&#x74;&#64;&#101;&#46;&#99;&#111;&#x64;&#105;&#110;&#103;&#x2e;&#x6e;&#x65;&#x74;</a>:nilinkeji&#x2F;nilinkeji&#x2F;nilinkeji.git,master</p>
 </blockquote>
 <p><img src="/githexo28.png"><br><strong>注意:repo需要更改为自己的地址，获取方式如下图，将其复制type后面即可。另外，冒号后面一定要加空格，否则部署会失败</strong><br><img src="/githexo29.png"><br><img src="/githexo33.png"></p>
 <p>2.更改完之后保存，我们就可以使用hexo命令发布到仓库中了：</p>
@@ -906,16 +902,12 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BB%BA%E7%AB%99/">
-                                    <span class="chip bg-color">建站</span>
+                                <a href="/tags/%E5%8F%8C%E5%AD%90%E6%98%9F/">
+                                    <span class="chip bg-color">双子星</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                                    <span class="chip bg-color">博客</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%BB%8F%E9%AA%8C/">
-                                    <span class="chip bg-color">经验</span>
+                                <a href="/tags/WIFI/">
+                                    <span class="chip bg-color">WIFI</span>
                                 </a>
                             
                         </div>
@@ -946,13 +938,13 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/07/15/shuangzixingwifidtuzhilingjishuoming/">
+                <a href="/2026/07/15/shuangzixing4gdtuzhilingjishuoming/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="双子星 WIFI-DTU 指令集说明">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="双子星 4G-DTU 指令集说明">
                         
-                        <span class="card-title">双子星 WIFI-DTU 指令集说明</span>
+                        <span class="card-title">双子星 4G-DTU 指令集说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -980,12 +972,12 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%8C%E5%AD%90%E6%98%9F/">
-                        <span class="chip bg-color">双子星</span>
+                    <a href="/tags/4G/">
+                        <span class="chip bg-color">4G</span>
                     </a>
                     
-                    <a href="/tags/WIFI/">
-                        <span class="chip bg-color">WIFI</span>
+                    <a href="/tags/%E5%8F%8C%E5%AD%90%E6%98%9F/">
+                        <span class="chip bg-color">双子星</span>
                     </a>
                     
                 </div>
@@ -996,7 +988,7 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2026/07/09/dajiangerenboke/">
@@ -1030,7 +1022,6 @@ hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

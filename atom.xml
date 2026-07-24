@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>京墨科技</title>
+  <title>景墨嘉铭</title>
   
-  <subtitle>京墨科技</subtitle>
+  <subtitle>景墨嘉铭</subtitle>
   <link href="https://doc.jmaiot.cn/atom.xml" rel="self"/>
   
   <link href="https://doc.jmaiot.cn/"/>
-  <updated>2026-07-15T04:48:04.794Z</updated>
+  <updated>2026-07-24T08:16:32.178Z</updated>
   <id>https://doc.jmaiot.cn/</id>
   
   <author>
-    <name>京墨科技</name>
+    <name>景墨嘉铭</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>双子星 WIFI-DTU 指令集说明</title>
-    <link href="https://doc.jmaiot.cn/2026/07/15/shuangzixingwifidtuzhilingjishuoming/"/>
-    <id>https://doc.jmaiot.cn/2026/07/15/shuangzixingwifidtuzhilingjishuoming/</id>
+    <title>双子星 4G-DTU 指令集说明</title>
+    <link href="https://doc.jmaiot.cn/2026/07/15/shuangzixing4gdtuzhilingjishuoming/"/>
+    <id>https://doc.jmaiot.cn/2026/07/15/shuangzixing4gdtuzhilingjishuoming/</id>
     <published>2026-07-15T04:11:15.000Z</published>
-    <updated>2026-07-15T04:48:04.794Z</updated>
+    <updated>2026-07-24T08:16:32.178Z</updated>
     
     
       
@@ -37,18 +37,18 @@
     <category term="协议解析" scheme="https://doc.jmaiot.cn/categories/%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90/"/>
     
     
-    <category term="WIFI" scheme="https://doc.jmaiot.cn/tags/WIFI/"/>
+    <category term="4G" scheme="https://doc.jmaiot.cn/tags/4G/"/>
     
     <category term="双子星" scheme="https://doc.jmaiot.cn/tags/%E5%8F%8C%E5%AD%90%E6%98%9F/"/>
     
   </entry>
   
   <entry>
-    <title>双子星 4G-DTU 指令集说明</title>
-    <link href="https://doc.jmaiot.cn/2026/07/15/shuangzixing4gdtuzhilingjishuoming/"/>
-    <id>https://doc.jmaiot.cn/2026/07/15/shuangzixing4gdtuzhilingjishuoming/</id>
+    <title>双子星 WIFI-DTU 指令集说明</title>
+    <link href="https://doc.jmaiot.cn/2026/07/15/shuangzixingwifidtuzhilingjishuoming/"/>
+    <id>https://doc.jmaiot.cn/2026/07/15/shuangzixingwifidtuzhilingjishuoming/</id>
     <published>2026-07-15T04:11:15.000Z</published>
-    <updated>2026-07-15T04:37:42.609Z</updated>
+    <updated>2026-07-24T08:16:29.880Z</updated>
     
     
       
@@ -66,7 +66,7 @@
     
     <category term="双子星" scheme="https://doc.jmaiot.cn/tags/%E5%8F%8C%E5%AD%90%E6%98%9F/"/>
     
-    <category term="4G" scheme="https://doc.jmaiot.cn/tags/4G/"/>
+    <category term="WIFI" scheme="https://doc.jmaiot.cn/tags/WIFI/"/>
     
   </entry>
   
@@ -75,7 +75,7 @@
     <link href="https://doc.jmaiot.cn/2026/07/09/dajiangerenboke/"/>
     <id>https://doc.jmaiot.cn/2026/07/09/dajiangerenboke/</id>
     <published>2026-07-08T16:11:15.000Z</published>
-    <updated>2026-07-10T16:18:41.179Z</updated>
+    <updated>2026-07-24T08:16:18.413Z</updated>
     
     
       
